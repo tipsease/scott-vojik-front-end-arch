@@ -10,6 +10,7 @@ import logger from "redux-logger";
 import HomeView from "./views/HomeView"
 import StaffListView from "./views/StaffListView"
 import StaffView from './views/StaffView';
+import FormView from './views/FormView';
 
 import './App.css';
 
@@ -25,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <h1>hello world</h1>
+          <h1>TipsEase</h1>
           <div className="nav-links">
 
             <NavLink exact to="/staff-form">Add Staff Member</NavLink>
@@ -38,6 +39,8 @@ class App extends Component {
             )} />
 
             <Route path="/staff-list/:id" component={StaffView} />
+
+            <Route path="/staff-form" render={props => <FormView {...props} /> } />
           </div>
         </nav>
       </div>

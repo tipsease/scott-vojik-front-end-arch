@@ -4,15 +4,16 @@ import React from "react";
 function Staff (props) {
 
 
-  const staff = props.staff.find(thing => `${thing.id}` === props.match.params.id);
+  const staff = props.staff.find(staff => `${staff.id}` === props.match.params.id);
 
   return (
 
     <div>
 
       <div>
-        <h1>hello dorf</h1>
-        <p>{staff.name}</p>
+        <img src={staff.imageUrl} />
+        <h2>{staff.name}</h2>
+        
       </div>
 
     </div>
