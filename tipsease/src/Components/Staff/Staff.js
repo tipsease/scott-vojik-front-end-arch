@@ -11,7 +11,7 @@ function Staff (props) {
     <div>
 
       <div>
-        <h1>hello world</h1>
+        <h1>hello dorf</h1>
         <p>{staff.name}</p>
       </div>
 

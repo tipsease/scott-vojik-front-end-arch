@@ -4,7 +4,7 @@ function StaffList(props) {
 
   function routeToStaff(ev, staff) {
     ev.preventDefault();
-    props.history.push(`/staff-list/${staff.name}`);
+    props.history.push(`/staff-list/${staff.id}`);
   }
 
   return (

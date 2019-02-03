@@ -7,7 +7,7 @@ export const FETCH_STAFF_FAILURE = "FETCH_STAFF_FAILURE"
 export const getStaff = () => dispatch => {
   dispatch({ type: FETCH_STAFF_START });
   axios
-    .get("https://swapi.co/api/people/")
-    .then(res => dispatch ({ type: FETCH_STAFF_SUCCESS, payload: res.data.results }))
+    .get("https://my.api.mockaroo.com/tipsease.json?key=8747b760")
+    .then(res => dispatch ({ type: FETCH_STAFF_SUCCESS, payload: res.data }))
     .catch(err => dispatch ({ type: FETCH_STAFF_FAILURE, payload: err }));
 }
