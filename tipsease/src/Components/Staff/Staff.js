@@ -4,7 +4,7 @@ import React from "react";
 function Staff (props) {
 
 
-  const staff = props.staff.find(thing => `${thing.name}` === props.match.params.name);
+  const staff = props.staff.find(thing => `${thing.id}` === props.match.params.id);
 
   return (
 

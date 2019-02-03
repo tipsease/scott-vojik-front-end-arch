@@ -9,11 +9,10 @@ import logger from "redux-logger";
 
 import HomeView from "./views/HomeView"
 import StaffListView from "./views/StaffListView"
-
-
-
+import StaffView from './views/StaffView';
 
 import './App.css';
+
 
 class App extends Component {
   constructor() {
@@ -37,6 +36,8 @@ class App extends Component {
             <Route exact path="/staff-list" render={props => (
               <StaffListView {...props} />
             )} />
+
+            <Route path="/staff-list/:id" component={StaffView} />
           </div>
         </nav>
       </div>
