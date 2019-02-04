@@ -5,8 +5,8 @@ function StaffForm(props) {
 
   const handleClick = ev => {
     ev.preventDefault();
-    if (props.isUpdating) {
-      props.updateStaff();
+    if (props.isEditing) {
+      props.editStaff();
     } else {
       props.addNewStaff();
     }

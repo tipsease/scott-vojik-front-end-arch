@@ -13,6 +13,11 @@ function Staff (props) {
       <div>
         <img src={staff.imageUrl} />
         <h2>{staff.name}</h2>
+
+        <button onClick={event => {
+          props.editItem(event)
+          props.history.push("/staff-form");
+        }}>Edit Staff Member</button>
         
       </div>
 

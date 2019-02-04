@@ -13,9 +13,17 @@ class StaffView extends React.Component {
     }
   }
 
+  setEdit = (ev, staff) => {
+    ev.preventDefault();
+    this.setState({
+      staff,
+      isEditing: true,
+    })
+  }
+
   render() {
     return (
-      <Staff staff={this.props.staff} history={this.props.history} match={this.props.match} />
+      <Staff staff={this.props.staff} editItem={this.setEdit} history={this.props.history} match={this.props.match} />
     )
   }
 }
