@@ -20,7 +20,7 @@ function Staff (props) {
         <p>{staffMember.price}</p>
 
         <form>
-          <input type="number" name="price" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.staff.price}/>
+          <input type="number" name="price" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.indiStaff.price}/>
           <button type="submit" onClick={handleSubmit}>Tip Staff</button>
         </form>
         

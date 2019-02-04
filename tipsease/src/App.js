@@ -29,6 +29,7 @@ class App extends Component {
           <h1>TipsEase</h1>
           <div className="nav-links">
 
+            
             <NavLink exact to="/staff-form">Add Staff Member</NavLink>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/staff-list">Staff</NavLink>

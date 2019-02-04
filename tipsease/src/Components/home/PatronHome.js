@@ -1,7 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom"
 
-function Home(props) {
+function PatronHome(props) {
   const routeToStaffList = ev => {
     ev.preventDefault();
     props.history.push("/staff-list");
@@ -9,10 +8,9 @@ function Home(props) {
 
   return (
     <div>
-      <NavLink exact to="/staff-form">Add Staff Member</NavLink>
       <button onClick={routeToStaffList}>View Staff Members!</button>
     </div>
   )
 }
 
-export default Home;
+export default PatronHome;

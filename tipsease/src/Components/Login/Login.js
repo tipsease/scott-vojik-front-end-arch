@@ -22,6 +22,7 @@ class Login extends React.Component {
         <input type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleInputChange} required />
 
       <button onClick={this.handleLogin}>Log In</button>
+      <button onClick={this.handleLogin}>Register</button>
       </form>
     )
   }

@@ -42,13 +42,13 @@ class StaffView extends React.Component {
 
   render() {
     return (
-      <Staff addNewTip={this.addNewTip} changeHandler={this.changeHandler} staff={this.props.staff} history={this.props.history} match={this.props.match} />
+      <Staff addNewTip={this.addNewTip} changeHandler={this.changeHandler} indiStaff={this.state.staff} staff={this.props.staff} history={this.props.history} match={this.props.match} />
     )
   }
 }
 
 const mapStateToProps = state => ({
-  staff: state.staff
+  staff: state.staff,
 })
 
 export default connect(

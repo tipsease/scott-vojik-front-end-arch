@@ -32,7 +32,7 @@ export const addStaff = staff => dispatch => {
 export const addTip = staff => dispatch => {
   dispatch({ type: TIP_STAFF_START });
     axios
-      .put(`http://localhost:3333/items/${staff.id}`, staff)
+      .put(`http://localhost:3333/items/`, staff)
       .then(res => dispatch ({ type: TIP_STAFF_SUCCESS, payload: res.data }))
       .catch(err => dispatch({ type: TIP_STAFF_FAILURE, payload: err }));
 }
