@@ -1,11 +1,21 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { getStaff } from "../store/actions"
+import { getStaff, addTip } from "../store/actions"
 
 import Staff from "../Components/Staff/Staff"
 
 class StaffView extends React.Component {
+
+  state ={
+    staff: {
+      name: '',
+      description: '',
+      imageUrl: '',
+      price: ''
+    },
+    isEditing: false,
+  }
 
   componentDidMount() {
     if (this.props.staff.length === 0) {
@@ -13,17 +23,26 @@ class StaffView extends React.Component {
     }
   }
 
-  setEdit = (ev, staff) => {
-    ev.preventDefault();
-    this.setState({
-      staff,
-      isEditing: true,
-    })
+  changeHandler = ev => {
+    this.setState ({
+      staff: {
+        ...this.state.staff,
+        [ev.target.name]: ev.target.value
+      }
+    });
+  };
+
+
+  addNewTip = () => {
+    this.props.addTip(this.state.staff);
   }
+
+
+ 
 
   render() {
     return (
-      <Staff staff={this.props.staff} editItem={this.setEdit} history={this.props.history} match={this.props.match} />
+      <Staff addNewTip={this.addNewTip} changeHandler={this.changeHandler} staff={this.props.staff} history={this.props.history} match={this.props.match} />
     )
   }
 }
@@ -34,5 +53,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getStaff }
+  { getStaff, addTip }
 )(StaffView);

@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import StaffForm from '../Components/StaffForm/StaffForm'
-import { addStaff, editStaff } from '../store/actions'
+import { addStaff, addTip } from '../store/actions'
 
 class FormView extends React.Component {
 
@@ -11,6 +11,7 @@ class FormView extends React.Component {
       name: '',
       description: '',
       imageUrl: '',
+      price: ''
     },
     isEditing: false,
   }
@@ -26,16 +27,11 @@ class FormView extends React.Component {
 
   addNewStaff = () => {
     this.props.addStaff(this.state.staff);
-  }
-
-  editStaff = () => {
-    this.setState({ isEditing: true })
-    this.props.editStaff(this.state.staff);
-  }
+  }  
 
   render() {
     return (
-      <StaffForm Form addNewStaff={this.addNewStaff} editStaff={this.editStaff} changeHandler={this.changeHandler} staff={this.state.staff} />
+      <StaffForm Form addNewStaff={this.addNewStaff} changeHandler={this.changeHandler} staff={this.state.staff} />
     )
   }
 
@@ -45,5 +41,5 @@ const mapStateToProps = state => ({});
 
 export default connect(
   mapStateToProps,
-  { addStaff, editStaff }
+  { addStaff, addTip }
 )(FormView);

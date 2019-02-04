@@ -3,21 +3,27 @@ import React from "react";
 
 function Staff (props) {
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.addNewTip();
+  }
 
-  const staff = props.staff.find(staff => `${staff.id}` === props.match.params.id);
+  const staffMember = props.staff.find(staff => `${staff.id}` === props.match.params.id);
 
   return (
 
     <div>
 
       <div>
-        <img src={staff.imageUrl} />
-        <h2>{staff.name}</h2>
+        <img src={staffMember.imageUrl} />
+        <h2>{staffMember.name}</h2>
+        <p>{staffMember.price}</p>
 
-        <button onClick={event => {
-          props.editItem(event)
-          props.history.push("/staff-form");
-        }}>Edit Staff Member</button>
+        <form>
+          <input type="number" name="price" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.staff.price}/>
+          <button type="submit" onClick={handleSubmit}>Tip Staff</button>
+        </form>
+        
         
       </div>
 
