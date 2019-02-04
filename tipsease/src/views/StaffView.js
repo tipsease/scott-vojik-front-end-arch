@@ -12,7 +12,8 @@ class StaffView extends React.Component {
       name: '',
       description: '',
       imageUrl: '',
-      price: ''
+      price: '',
+      id: null,
     },
     isEditing: false,
   }
@@ -33,8 +34,8 @@ class StaffView extends React.Component {
   };
 
 
-  addNewTip = () => {
-    this.props.addTip(this.state.staff);
+  addNewTip = (id) => {
+    this.props.addTip(this.state.staff, id);
   }
 
 

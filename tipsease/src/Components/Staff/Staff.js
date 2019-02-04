@@ -5,7 +5,7 @@ function Staff (props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.addNewTip();
+    props.addNewTip(staffMember.id);
   }
 
   const staffMember = props.staff.find(staff => `${staff.id}` === props.match.params.id);

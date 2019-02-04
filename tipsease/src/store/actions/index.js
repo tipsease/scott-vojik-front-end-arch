@@ -29,10 +29,10 @@ export const addStaff = staff => dispatch => {
     .catch(err => dispatch({ type: ADD_STAFF_FAILURE, payload: err }));
 }
 
-export const addTip = staff => dispatch => {
+export const addTip = (staff, id) => dispatch => {
   dispatch({ type: TIP_STAFF_START });
     axios
-      .put(`http://localhost:3333/items/10`, staff)
+      .put(`http://localhost:3333/items/${id}`, staff)
       .then(res => dispatch ({ type: TIP_STAFF_SUCCESS, payload: res.data }))
       .catch(err => dispatch({ type: TIP_STAFF_FAILURE, payload: err }));
 }

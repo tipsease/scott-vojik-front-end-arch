@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom"
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom"
-import axios from "axios"
-import { Provider } from "react-redux"
-import { createStore, applyMiddleware, compose } from "redux"
-import thunk from "redux-thunk"
-import logger from "redux-logger";
+import { Route, NavLink } from "react-router-dom"
+import styled from "styled-components";
 
 import HomeView from "./views/HomeView"
 import StaffListView from "./views/StaffListView"
@@ -13,6 +9,12 @@ import StaffView from './views/StaffView';
 import FormView from './views/FormView';
 
 import './App.css';
+
+const AppStyled = styled.div`
+  height: 100%;
+  background-color: #EEF1E3;
+  text-align: center;
+`
 
 
 class App extends Component {
@@ -24,7 +26,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <AppStyled>
         <nav>
           <h1>TipsEase</h1>
           <div className="nav-links">
@@ -44,7 +46,7 @@ class App extends Component {
             <Route path="/staff-form" render={props => <FormView {...props} /> } />
           </div>
         </nav>
-      </div>
+      </AppStyled>
     );
   }
 }
