@@ -1,5 +1,10 @@
 import React from "react";
+import styled from "styled-components"
 
+
+const individualAvatar = styled.img`
+    border-radius: 100%;
+  `
 
 function Staff (props) {
 
@@ -10,12 +15,16 @@ function Staff (props) {
 
   const staffMember = props.staff.find(staff => `${staff.id}` === props.match.params.id);
 
+  
+
+  // <Logo src={require("./tipease3.png")} alt="logo"/>
+
   return (
 
     <div>
 
       <div>
-        <img src={staffMember.imageUrl} />
+        <individualAvatar src={staffMember.imageUrl} alt="avatar"/>
         <h2>{staffMember.name}</h2>
         <p>{staffMember.price}</p>
 

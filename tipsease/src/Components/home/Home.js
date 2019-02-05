@@ -9,8 +9,7 @@ function Home(props) {
 
   return (
     <div>
-      <NavLink exact to="/staff-form">Add Staff Member</NavLink>
-      <button onClick={routeToStaffList}>View Staff Members!</button>
+      <p>Landing page here?</p>
     </div>
   )
 }

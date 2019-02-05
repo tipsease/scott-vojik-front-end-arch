@@ -16,6 +16,25 @@ const AppStyled = styled.div`
   text-align: center;
 `
 
+const StyleNavBar = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+`
+
+const StyledNav = styled.a`
+  text-decoration: none;
+  margin: 20px 2%;
+  font-size: 1.6rem;
+`
+
+const Logo = styled.img`
+  height: 300px;
+  width: auto;
+  margin: 24px auto;
+`
+
 
 class App extends Component {
   constructor() {
@@ -26,26 +45,27 @@ class App extends Component {
   }
   render() {
     return (
-      <AppStyled>
-        <nav>
-          <h1>TipsEase</h1>
-          <div className="nav-links">
+      <AppStyled>          
+        <StyleNavBar>
+          
+          <NavLink className="nav-link" exact to="/staff-form">Add Staff Member</NavLink>
+          <NavLink className="nav-link" exact to="/">Home</NavLink>
+          <NavLink className="nav-link" to="/staff-list">Staff</NavLink>
 
-            
-            <NavLink exact to="/staff-form">Add Staff Member</NavLink>
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink to="/staff-list">Staff</NavLink>
+        </StyleNavBar>
 
-            <Route exact path="/" component={HomeView} />
-            <Route exact path="/staff-list" render={props => (
-              <StaffListView {...props} />
-            )} />
+        <Logo src={require("./tipease3.png")} alt="logo"/>
 
-            <Route path="/staff-list/:id" component={StaffView} />
+        <Route exact path="/" component={HomeView} />
+        
+        <Route exact path="/staff-list" render={props => (
+          <StaffListView {...props} />
+          )} 
+        />
 
-            <Route path="/staff-form" render={props => <FormView {...props} /> } />
-          </div>
-        </nav>
+        <Route path="/staff-list/:id" component={StaffView} />
+        <Route path="/staff-form" render={props => <FormView {...props} /> } />
+
       </AppStyled>
     );
   }
