@@ -2,9 +2,19 @@ import React from "react";
 import styled from "styled-components"
 
 
-const individualAvatar = styled.img`
+const IndividualAvatar = styled.img`
     border-radius: 100%;
   `
+
+const StaffName = styled.p`
+  font-size: 1.5rem;
+`
+
+const TipAmount = styled.p`
+  font-size: 2rem;
+`
+
+
 
 function Staff (props) {
 
@@ -24,9 +34,9 @@ function Staff (props) {
     <div>
 
       <div>
-        <individualAvatar src={staffMember.imageUrl} alt="avatar"/>
-        <h2>{staffMember.name}</h2>
-        <p>{staffMember.price}</p>
+        <IndividualAvatar src={staffMember.imageUrl} alt="avatar"/>
+        <StaffName>Staff Member: {staffMember.name}</StaffName>
+        <TipAmount>Tip: ${staffMember.price}</TipAmount>
 
         <form>
           <input type="number" name="price" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.stateStaff.price}/>

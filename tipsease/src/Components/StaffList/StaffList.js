@@ -10,6 +10,7 @@ function StaffList(props) {
 
   const StaffHeader = styled.p`
     font-size: 4rem;
+    color: #282B2D
   `
 
   const StaffListContainer = styled.div`
@@ -23,6 +24,10 @@ function StaffList(props) {
     width: 400px;
     cursor: pointer;
     margin-bottom: 68px;
+    &:hover {
+      color: #67AB4C;
+      font-weight:bold;
+    }
   `
 
   const ListPic = styled.img`
@@ -31,6 +36,8 @@ function StaffList(props) {
 
   const StaffName = styled.p`
     font-size: 1.5rem;
+
+    
   `
 
   return (

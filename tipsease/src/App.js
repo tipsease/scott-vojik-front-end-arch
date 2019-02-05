@@ -23,18 +23,11 @@ const StyleNavBar = styled.div`
   justify-content: flex-start;
 `
 
-const StyledNav = styled.a`
-  text-decoration: none;
-  margin: 20px 2%;
-  font-size: 1.6rem;
-`
-
 const Logo = styled.img`
   height: 300px;
   width: auto;
   margin: 24px auto;
 `
-
 
 class App extends Component {
   constructor() {
