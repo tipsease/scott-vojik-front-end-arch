@@ -94,17 +94,18 @@ class Login extends React.Component {
           <ButtonContainer>
 
             <div>
-              <LoginButtons onClick={this.handleLogin}>Log In</LoginButtons>
-            
+
               <RadioContainer>
                 <RadioButton type="radio" id="employee"
                 name="validation" value="employee" />
-                <RadioFont for="employee">Employee</RadioFont>
+                <RadioFont>Employee</RadioFont>
 
                 <RadioButton type="radio" id="patron"
-                name="validation" value="patron" checked />
-                <RadioFont for="patron">Patron</RadioFont>
+                name="validation" value="patron" defaultChecked />
+                <RadioFont>Patron</RadioFont>
               </RadioContainer>
+
+              <LoginButtons onClick={this.handleLogin}>Log In</LoginButtons>
 
             </div>
             

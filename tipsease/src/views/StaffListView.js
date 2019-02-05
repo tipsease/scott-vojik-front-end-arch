@@ -4,19 +4,52 @@ import { connect } from "react-redux"
 import { getStaff } from "../store/actions"
 
 import StaffList from "../Components/StaffList/StaffList"
+import SearchBar from "../Components/SearchBar/SearchBar"
 
 class StaffListView extends React.Component {
-
-  state = {
-    staff: []
+  constructor() {
+    super();
+    this.state = {
+      staff: [],
+      searchText: '',
+      searchPosts: [],
+    }
   }
+  
 
   componentDidMount() {
     this.props.getStaff();
   }
 
+  handleSearch = ev => {
+    this.setState({
+      searchText: ev.target.value
+    });
+  };
+
+  searchUsers = ev => {
+    ev.preventDefault();
+    console.log(this.props.staff)
+    const searchedEmployee = this.props.staff.filter(employee => {
+      console.log(employee);
+      console.log(this.state.searchText);
+      if (employee.name.includes(this.state.searchText)) {
+        return employee;
+      }
+    })
+
+    this.setState({ searchPosts: searchedEmployee })
+    
+  }
+
   render() {
-    return <StaffList history={this.props.history} staff={this.props.staff} />;
+    return (
+    
+      <div>
+        <SearchBar search={this.searchUsers} handleSearch={this.handleSearch} />
+        <StaffList history={this.props.history} staff={this.state.searchPosts.length > 0 ? this.state.searchPosts : this.props.staff} />;
+      </div>
+    )
   }
 }
 
