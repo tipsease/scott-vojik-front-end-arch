@@ -1,8 +1,9 @@
-* {
+body {
   background-color: #fffffd;
 }
 
 #root {
+  background-color: #fffffd;
   font-size: 16px;
 }
 

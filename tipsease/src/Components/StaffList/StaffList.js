@@ -8,10 +8,7 @@ function StaffList(props) {
     props.history.push(`/staff-list/${staff.id}`);
   }
 
-  const StaffHeader = styled.p`
-    font-size: 4rem;
-    color: #282B2D
-  `
+ 
 
   const StaffListContainer = styled.div`
     display: flex;
@@ -24,29 +21,42 @@ function StaffList(props) {
     width: 400px;
     cursor: pointer;
     margin-bottom: 68px;
+    font-weight:bold;
     &:hover {
       color: #67AB4C;
-      font-weight:bold;
+      background-color: #EEF1E3
+      box-shadow: 5px 5px 5px #86A38C;
     }
+    border: 2px solid #86A38C;
+    border-radius: 5px;
+    
   `
 
   const ListPic = styled.img`
     border-radius: 100%;  
   `
 
+  const NameContainer = styled.div`
+    width: 80%;
+    margin: 0 auto;
+
+    &:hover {
+      background-color: #EEF1E3
+    }
+  `  
+
   const StaffName = styled.p`
     font-size: 1.5rem;
-
-    
   `
 
   return (
     <div>
-      <StaffHeader>Staff Members</StaffHeader>
       <StaffListContainer>
       {props.staff.map(staff => (
         <StaffMember onClick={ev => routeToStaff(ev, staff)} key={staff.id}>
-          <StaffName>{staff.name}</StaffName>
+          <NameContainer>
+            <StaffName>{staff.name}</StaffName>
+          </NameContainer>
           <ListPic src={staff.imageUrl} />
         </StaffMember>
       

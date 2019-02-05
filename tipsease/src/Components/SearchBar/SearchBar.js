@@ -3,26 +3,33 @@ import styled from 'styled-components';
 
 const SearchContainer = styled.div`
   display: flex;
-  margin: 0 0 64px;
-  border-bottom: 1px solid lightgray;
-  padding-bottom: 20px;
-  align-items: center;
-  justify-content: space-between;
+  margin: 48px 0 64px;
+  border-top: 1px solid lightgray;
+  padding: 48px 0 0;
+  align-items: space-between;
+  justify-content: center;
   width: 100%;
   background-color: white;
+  flex-direction: column
 `
 
 const SearchForm = styled.form`
-  width: 33%;
+  width: 80%;
   margin: 0 auto;
 `
 
 const SearchInput = styled.input`
-  margin-top: 16px;
-  padding: 6px 20px;
+  width: 40%;
+  margin: 82px auto 48px;
+  padding: 20px 20px;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   font-weight: bold;
+`
+
+const StaffHeader = styled.p`
+  font-size: 4rem;
+  margin: 24 auto 24px;
 `
 
 
@@ -30,7 +37,8 @@ function SearchBar(props) {
   return (
     <SearchContainer>
       
-      <SearchForm onSubmit={props.search}>
+      <StaffHeader>Staff Members</StaffHeader>
+      <SearchForm onChange={props.search}>
         <SearchInput name="searchText" onChange={props.handleSearch} type="text" placeholder="Search" />
       </SearchForm>
       
