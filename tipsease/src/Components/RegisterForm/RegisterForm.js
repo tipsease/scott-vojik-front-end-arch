@@ -30,7 +30,7 @@ const FormButton = styled.button`
   border-radius: 20px;
   font-size: 1.8rem;
   width: 450px;
-  margin: 12px; auto;
+  margin: 12px auto;
   border-color: lightgray;
 
   &:hover {
