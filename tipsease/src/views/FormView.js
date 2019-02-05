@@ -1,8 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import StaffForm from '../Components/StaffForm/StaffForm'
-import { addStaff, addTip } from '../store/actions'
+import StaffForm from '../Components/StaffForm/RegisterForm'
+import { addStaff } from '../store/actions'
 
 class FormView extends React.Component {
 
@@ -41,5 +41,5 @@ const mapStateToProps = state => ({});
 
 export default connect(
   mapStateToProps,
-  { addStaff, addTip }
+  { addStaff }
 )(FormView);

@@ -28,6 +28,9 @@ function Staff (props) {
   
 
   // <Logo src={require("./tipease3.png")} alt="logo"/>
+  if (!staffMember) {
+    return <h2>Loading item data...</h2>
+}
 
   return (
 

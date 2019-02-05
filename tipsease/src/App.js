@@ -12,7 +12,7 @@ import './App.css';
 
 const AppStyled = styled.div`
   height: 100%;
-  background-color: #EEF1E3;
+  background-color: #fffffd;
   text-align: center;
 `
 
@@ -41,7 +41,7 @@ class App extends Component {
       <AppStyled>          
         <StyleNavBar>
           
-          <NavLink className="nav-link" exact to="/staff-form">Add Staff Member</NavLink>
+          <NavLink className="nav-link" exact to="/staff-form">Register</NavLink>
           <NavLink className="nav-link" exact to="/">Home</NavLink>
           <NavLink className="nav-link" to="/staff-list">Staff</NavLink>
 
