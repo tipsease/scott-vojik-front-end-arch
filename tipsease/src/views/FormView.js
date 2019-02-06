@@ -1,17 +1,17 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import StaffForm from '../Components/StaffForm/RegisterForm'
+import RegisterForm from '../Components/RegisterForm/RegisterForm'
 import { addStaff } from '../store/actions'
 
 class FormView extends React.Component {
 
   state ={
     staff: {
-      name: '',
-      description: '',
-      imageUrl: '',
-      price: ''
+      first_name: '',
+      tagline: '',
+      photo_url: '',
+      company: ''
     },
     isEditing: false,
   }
@@ -31,7 +31,7 @@ class FormView extends React.Component {
 
   render() {
     return (
-      <StaffForm Form addNewStaff={this.addNewStaff} changeHandler={this.changeHandler} staff={this.state.staff} />
+      <RegisterForm Form addNewStaff={this.addNewStaff} changeHandler={this.changeHandler} staff={this.state.staff} />
     )
   }
 

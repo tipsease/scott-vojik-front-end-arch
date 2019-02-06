@@ -17,8 +17,6 @@ class StaffView extends React.Component {
     isEditing: false,
   }
 
-  
-
   componentDidMount() {
     if (this.props.staff.length === 0) {
       this.props.getStaff();
@@ -34,14 +32,10 @@ class StaffView extends React.Component {
     });
   };
 
-
   addNewTip = (id) => {
     console.log(this.state.staff);
     this.props.addTip(this.state.staff, id);
   }
-
-
- 
 
   render() {
     return (

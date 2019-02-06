@@ -22,7 +22,7 @@ const UserInfo = styled.input`
   font-size: 1.8rem;
   width: 450px;
   margin: 12px; auto;
-  border-color: lightgray;
+  border: 1px solid lightgray;
 `
 
 const FormButton = styled.button`
@@ -58,10 +58,10 @@ function RegisterForm(props) {
 
     <StyledForm>
 
-      <UserInfo type="text" name="name" onChange={props.changeHandler} placeholder="Name" value={props.staff.name} />
-      <UserInfo type="text" name="imgUrl" onChange={props.changeHandler} placeholder="Profile Picture" value={props.staff.imgUrl} />
-      <UserInfo type="text" name="price" onChange={props.changeHandler} placeholder="Price" value={props.staff.price} />
-      <UserInfo type="text" name="description" onChange={props.changeHandler} placeholder="Description" value={props.staff.description} />
+      <UserInfo type="text" name="first_name" onChange={props.changeHandler} placeholder="First Name" value={props.staff.first_name} />
+      <UserInfo type="text" name="tagline" onChange={props.changeHandler} placeholder="Tagline" value={props.staff.tagline} />
+      <UserInfo type="text" name="photo_url" onChange={props.changeHandler} placeholder="Profile Picture" value={props.staff.photo_url} />
+      <UserInfo type="text" name="company" onChange={props.changeHandler} placeholder="Company" value={props.staff.company} />
       {/* <input type="text" name="name" onChange={props.changeHandler} placeholder="name" value={props.staff.name} /> */}
 
       <FormButton onClick={handleClick}>Register User</FormButton>

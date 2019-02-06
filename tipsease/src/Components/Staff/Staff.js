@@ -11,8 +11,8 @@ const StaffContainer = styled.div`
 `
 
 const IndividualAvatar = styled.img`
-    border-radius: 100%;
-  `
+  border-radius: 100%;
+`
 
 const StaffName = styled.p`
   font-size: 2rem;
@@ -59,26 +59,18 @@ const TipButton = styled.button`
   }
 `
 
-
-
 function Staff (props) {
 
   function handleSubmit(e) {
-    
     e.preventDefault();
     props.addNewTip(staffMember.id);
     console.log(staffMember);
   }
 
-
-
   const staffMember = props.staff.find(staff => `${staff.id}` === props.match.params.id);
 
-  
-
-  // <Logo src={require("./tipease3.png")} alt="logo"/>
   if (!staffMember) {
-    return <h2>Loading item data...</h2>
+    return <h2>Loading data...</h2>
 }
 
   return (

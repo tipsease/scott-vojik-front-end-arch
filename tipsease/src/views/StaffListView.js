@@ -7,6 +7,7 @@ import StaffList from "../Components/StaffList/StaffList"
 import SearchBar from "../Components/SearchBar/SearchBar"
 
 class StaffListView extends React.Component {
+  
   constructor() {
     super();
     this.state = {
@@ -16,7 +17,6 @@ class StaffListView extends React.Component {
     }
   }
   
-
   componentDidMount() {
     this.props.getStaff();
   }

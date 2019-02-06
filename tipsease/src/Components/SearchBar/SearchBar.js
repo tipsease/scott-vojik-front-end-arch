@@ -33,7 +33,6 @@ const StaffHeader = styled.p`
   margin: 24 auto 24px;
 `
 
-
 function SearchBar(props) {
   return (
     <SearchContainer>

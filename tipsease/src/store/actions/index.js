@@ -24,7 +24,7 @@ export const getStaff = () => dispatch => {
 export const addStaff = staff => dispatch => {
   dispatch({ type: ADD_STAFF_START });
   axios
-    .post("http://localhost:3333/items", staff)
+    .post("https://tipsease-backend.herokuapp.com/api/register/tippee", staff)
     .then(res => dispatch ({ type: ADD_STAFF_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ADD_STAFF_FAILURE, payload: err }));
 }
@@ -33,7 +33,7 @@ export const addTip = (staff, id) => dispatch => {
   console.log(staff, id);
   dispatch({ type: TIP_STAFF_START });
     axios
-      .post(`https://tipsease-backend.herokuapp.com/api/tippees/${id}/tips`, staff)
+      .post(`https://tipsease-backend.herokuapp.com/api/tippees/${id}/tips/`, staff)
       .then(res => dispatch ({ type: TIP_STAFF_SUCCESS, payload: res.data }))
       .catch(err => dispatch({ type: TIP_STAFF_FAILURE, payload: err }));
 }
