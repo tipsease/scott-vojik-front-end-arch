@@ -1,31 +1,51 @@
-import React from "react"
-import StaffListView from "../../views/StaffListView";
+// import React from "react"
+// import StaffListView from "../../views/StaffListView";
 
-const authenticate = HomeView => Login =>
-  class extends React.Component {
-    state = {
-      staffLoggedIn: false,
-      patronLoggedIn: false
-    }
+// const authenticate = HomeView => Login =>
+//   class extends React.Component {
+//     state = {
+//       staffLoggedIn: false,
+//       patronLoggedIn: false
+//     }
+    
 
-    componentDidMount() {
-      if (localStorage.getItem('sk')) {
-        this.setState({ staffLoggedIn: true });
-      }
-      if (localStorage.getItem('patron')) {
-        this.setState({ patronLoggedIn: true })
-      }
-    }
+//       async componentDidMount() {
+//         const endpoint = "https://tipsease-backend.herokuapp.com/api/tippers";
+    
+//         try {
+//           const token = localStorage.getItem('jwt');
+//           const requestOptions = {
+//             headers: {
+//               authorization: token
+//             }
+//           };
+//           const response = await axios.get(endpoint, requestOptions);
+//           console.log('endpoint', endpoint);
+    
+//           this.setState({ users: response.data.users });
+//         } catch (error) {
+//           console.error("we couldn't get those users");
+//         }
+//       }
 
-    render() {
-      if (this.state.staffLoggedIn) {
-        return <HomeView />;
-      } else if (this.state.patronLoggedIn) {
-        return <StaffListView />;
-      }
-      // if (this.state.patronLoggedIn) return <PatronHomeView />
-      return <Login />
-    }
-  }
+//     // componentDidMount() {
+//     //   if (localStorage.getItem('sk')) {
+//     //     this.setState({ staffLoggedIn: true });
+//     //   }
+//     //   if (localStorage.getItem('patron')) {
+//     //     this.setState({ patronLoggedIn: true })
+//     //   }
+//     // }
 
-  export default authenticate;
+//     render() {
+//       if (this.state.staffLoggedIn) {
+//         return <HomeView />;
+//       } else if (this.state.patronLoggedIn) {
+//         return <StaffListView />;
+//       }
+//       // if (this.state.patronLoggedIn) return <PatronHomeView />
+//       return <Login />
+//     }
+//   }
+
+//   export default authenticate;

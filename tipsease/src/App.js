@@ -6,6 +6,7 @@ import HomeView from "./views/HomeView"
 import StaffListView from "./views/StaffListView"
 import StaffView from './views/StaffView';
 import FormView from './views/FormView';
+import Login from "./Components/Login/Login"
 
 import './App.css';
 
@@ -57,6 +58,7 @@ class App extends Component {
 
         <Route path="/staff-list/:id" component={StaffView} />
         <Route path="/staff-form" render={props => <FormView {...props} /> } />
+        <Route path="/login" component={Login} />
 
       </AppStyled>
     );

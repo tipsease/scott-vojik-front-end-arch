@@ -36,7 +36,7 @@ const UserInfo = styled.input`
   font-size: 1.8rem;
   width: 450px;
   margin: 12px; auto;
-  border-color: lightgray;
+  border: 1px solid lightgray;
 `
 
 const LoginButtons = styled.button`
@@ -45,7 +45,7 @@ const LoginButtons = styled.button`
   font-size: 1.8rem;
   width: 450px;
   margin: 12px; auto;
-  border-color: lightgray;
+  border: 1px solid lightgray;
 
   &:hover {
     background-color: #5CA143
@@ -75,16 +75,15 @@ class Login extends React.Component {
     email: '',
     password: '',
     tipperBoolean: false,
-    
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-
-  // handleLogin = e => {
-  //   localStorage.setItem(`${this.state.username}`, 'user')
-  // }
+    //TEST STATE
+    // state = {
+    //   email: "kl.hawaii3e243@gmail.com",
+    //   password: "test",
+    //   tipperBoolean: null
+    // true: tipper
+    // }
 
   handleRegister = (e) => {
     e.preventDefault();
@@ -92,20 +91,26 @@ class Login extends React.Component {
 
   }
 
+  handleChange = (e) => {
+    this.setState({ 
+      [e.target.name]: e.target.value
+    })
+  }
+
 
   handleSubmit = event => {
     event.preventDefault();
-    const endpoint = 'https://tipsease-david-freitag-backend.herokuapp.com/api/';
+    const endpoint = 'https://tipsease-backend.herokuapp.com/api/login'; // hey, this is kai endpoint
 
     axios
       .post(endpoint, this.state)
       .then(res => {
         localStorage.setItem('jwt', res.data.token);
-        this.props.history.push('/');
+        this.props.history.push('/staff-list');
+        console.log("Hey man, great job", res.data.token)
       })
       .catch(err => console.log(err));
   };
-
 
 
   handleSignup = event => {
@@ -132,8 +137,8 @@ class Login extends React.Component {
         <Logo src={require("../../tipease3.png")} alt="logo"/>
         <StyledForm>
 
-          <UserInfo type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleInputChange}  />
-          <UserInfo type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleInputChange}  />
+          <UserInfo type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}  />
+          <UserInfo type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange}  />
 
           <ButtonContainer>
 
@@ -141,15 +146,15 @@ class Login extends React.Component {
 
               <RadioContainer>
                 <RadioButton type="radio" id="employee"
-                name="tipperBoolean" value="employee" />
+                name="tipperBoolean" value={false} onChange={this.handleChange} defaultChecked />
                 <RadioFont>Employee</RadioFont>
 
                 <RadioButton type="radio" id="patron"
-                name="tipperBoolean" value="patron" defaultChecked />
+                name="tipperBoolean" value={true} onChange={this.handleChange}  />
                 <RadioFont>Patron</RadioFont>
               </RadioContainer>
 
-              <LoginButtons onClick={this.handleLogin}>Log In</LoginButtons>
+              <LoginButtons onClick={this.handleSubmit}>Log In</LoginButtons>
 
             </div>
             

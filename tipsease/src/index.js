@@ -13,7 +13,7 @@ import Login from "./Components/Login/Login"
 
 import rootReducer from "./store/reducers"
 
-const ConditionalView = authenticate(App)(Login)
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -21,5 +21,5 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 
-ReactDOM.render(<Provider store={store}><Router><ConditionalView /></Router></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
 
