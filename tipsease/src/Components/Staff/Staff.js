@@ -81,7 +81,7 @@ function Staff (props) {
       <TipAmount>Tip: ${staffMember.amount}</TipAmount>
 
       <StyledForm>
-        <TipInput type="number" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.stateStaff.amount}/>
+        <TipInput type="number" min="0" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.stateStaff.amount}/>
         <TipButton type="submit" onClick={handleSubmit}>Tip Staff</TipButton>
       </StyledForm>
           
