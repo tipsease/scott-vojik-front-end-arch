@@ -14,13 +14,21 @@ class StaffView extends React.Component {
       amount: '',
       id: null,
     },
+    newTip: {
+      tipper_id: 2,
+      tippee_id: 2,
+      amount: '',
+      date: '123456789',
+    },
     isEditing: false,
+    tipData: []
   }
 
   componentDidMount() {
     if (this.props.staff.length === 0) {
       this.props.getStaff();
     }
+    this.setState({ tipData: this.props.getTips(2) })  
   }
 
   changeHandler = ev => {
@@ -34,7 +42,7 @@ class StaffView extends React.Component {
 
   addNewTip = (id) => {
     console.log(this.state.staff);
-    this.props.addTip(this.state.staff, id);
+    this.props.addTip(id, this.state.newTip);
   }
 
   render() {

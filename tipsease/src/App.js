@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, NavLink } from "react-router-dom"
 import styled from "styled-components";
 
@@ -29,21 +29,24 @@ const Logo = styled.img`
   margin: 24px auto;
 `
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
+class App extends React.Component {
+ 
 
-    };
+  handleLogout = (e) => {
+    localStorage.clear();
   }
+  
+
+  
   render() {
     return (
       <AppStyled>          
         <StyleNavBar>
           
-          <NavLink className="nav-link" exact to="/staff-form">Register</NavLink>
-          <NavLink className="nav-link" exact to="/">Home</NavLink>
+          {/* <NavLink className="nav-link" exact to="/staff-form">Register</NavLink>
+          <NavLink className="nav-link" exact to="/">Home</NavLink> */}
           <NavLink className="nav-link" to="/staff-list">Staff</NavLink>
+          <NavLink className="nav-link" onClick={this.handleLogout} to="/login">Logout</NavLink>
 
         </StyleNavBar>
 

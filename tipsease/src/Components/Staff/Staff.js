@@ -77,7 +77,7 @@ function Staff (props) {
 
     <StaffContainer>
       <IndividualAvatar src={staffMember.photo_url} alt="avatar"/>
-      <StaffName>Staff Member: {staffMember.first_name}</StaffName>
+      <StaffName>Staff Member: {staffMember.first_name} {staffMember.last_name}</StaffName>
       <TipAmount>Tip: ${staffMember.tip_amount}</TipAmount>
 
       <StyledForm>

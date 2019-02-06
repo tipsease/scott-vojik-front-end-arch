@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router"
 import styled from "styled-components"
+import axios from "axios"
 
 const FormContainer = styled.div`
   width: 100%;
@@ -39,37 +40,61 @@ const FormButton = styled.button`
   }
 `
 
-function RegisterForm(props) {
+class RegisterForm extends React.Component {
 
-  const handleClick = ev => {
-    ev.preventDefault();
-    if (props.isEditing) {
-      props.editStaff();
-    } else {
-      props.addNewStaff();
-    }
-    props.history.push('/staff-list/:id')
+  state = {
+    first_name: "",
+    last_name: "",
+    email: "",   //YOU MUSt ALWAYS HAVE A UNIQUE EMAIL
+    password: "",
+    errorMsg: null
   }
 
-  return (
+  handleChanges = e => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleSignup = event => {
+  event.preventDefault();
+  axios
+    .post('https://tipsease-backend.herokuapp.com/api/register', {
+      // this was a mistake, but you can do it this way
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      email: this.state.email,
+      password: this.state.password     
+    })
+    .then(res => {
+      localStorage.setItem('jwt', res.data.token);
+      console.log("it worked!!", res.data)
+
+      this.props.history.push(`/staff-list/`);
+    })
+    .catch(err => this.setState({ errorMsg: 'This email is already in use' }));
+  };
 
 
-    <FormContainer>
+  render() {
+    return (
 
-    <StyledForm>
-
-      <UserInfo type="text" name="first_name" onChange={props.changeHandler} placeholder="First Name" value={props.staff.first_name} />
-      <UserInfo type="text" name="tagline" onChange={props.changeHandler} placeholder="Tagline" value={props.staff.tagline} />
-      <UserInfo type="text" name="photo_url" onChange={props.changeHandler} placeholder="Profile Picture" value={props.staff.photo_url} />
-      <UserInfo type="text" name="company" onChange={props.changeHandler} placeholder="Company" value={props.staff.company} />
-      {/* <input type="text" name="name" onChange={props.changeHandler} placeholder="name" value={props.staff.name} /> */}
-
-      <FormButton onClick={handleClick}>Register User</FormButton>
-
-    </StyledForm>
-
-    </FormContainer>
-  )
+      <FormContainer>
+  
+        <StyledForm>
+  
+          <UserInfo type="text" name="first_name" onChange={this.handleChanges} placeholder="First Name" />
+          <UserInfo type="text" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
+          <UserInfo type="text" name="email" onChange={this.handleChanges} placeholder="Email" />
+          <UserInfo type="text" name="password" onChange={this.handleChanges} placeholder="Password" />
+          {/* <input type="text" name="name" onChange={props.changeHandler} placeholder="name" value={props.staff.name} /> */}
+  
+          <FormButton onClick={this.handleSignup}>Register User</FormButton>
+  
+        </StyledForm>
+  
+      </FormContainer>
+    )
+  }
+  
 
 }
 

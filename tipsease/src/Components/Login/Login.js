@@ -134,7 +134,7 @@ class Login extends React.Component {
   render() {
     return (
       <LoginContainer>
-        <Logo src={require("../../tipease3.png")} alt="logo"/>
+        {/* <Logo src={require("../../tipease3.png")} alt="logo"/> */}
         <StyledForm>
 
           <UserInfo type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}  />
