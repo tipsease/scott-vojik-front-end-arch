@@ -11,6 +11,7 @@ const SearchContainer = styled.div`
   width: 100%;
   background-color: white;
   flex-direction: column
+  background-color: #fffffd;
 `
 
 const SearchForm = styled.form`
@@ -39,7 +40,7 @@ function SearchBar(props) {
       
       <StaffHeader>Staff Members</StaffHeader>
       <SearchForm onChange={props.search}>
-        <SearchInput name="searchText" onChange={props.handleSearch} type="text" placeholder="Search" />
+        <SearchInput autoComplete="off" name="searchText" onChange={props.handleSearch} type="text" placeholder="Search" />
       </SearchForm>
       
     </SearchContainer>

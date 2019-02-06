@@ -64,8 +64,10 @@ const TipButton = styled.button`
 function Staff (props) {
 
   function handleSubmit(e) {
+    
     e.preventDefault();
     props.addNewTip(staffMember.id);
+    console.log(staffMember);
   }
 
 
@@ -82,12 +84,12 @@ function Staff (props) {
   return (
 
     <StaffContainer>
-      <IndividualAvatar src={staffMember.imageUrl} alt="avatar"/>
-      <StaffName>Staff Member: {staffMember.name}</StaffName>
-      <TipAmount>Tip: ${staffMember.price}</TipAmount>
+      <IndividualAvatar src={staffMember.photo_url} alt="avatar"/>
+      <StaffName>Staff Member: {staffMember.first_name}</StaffName>
+      <TipAmount>Tip: ${staffMember.amount}</TipAmount>
 
       <StyledForm>
-        <TipInput type="number" name="price" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.stateStaff.price}/>
+        <TipInput type="number" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.stateStaff.amount}/>
         <TipButton type="submit" onClick={handleSubmit}>Tip Staff</TipButton>
       </StyledForm>
           

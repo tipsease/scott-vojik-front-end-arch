@@ -15,6 +15,8 @@ function StaffList(props) {
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: #fffffd;
+
   `
 
   const StaffMember = styled.div`
@@ -55,9 +57,9 @@ function StaffList(props) {
       {props.staff.map(staff => (
         <StaffMember onClick={ev => routeToStaff(ev, staff)} key={staff.id}>
           <NameContainer>
-            <StaffName>{staff.name}</StaffName>
+            <StaffName>{staff.first_name}</StaffName>
           </NameContainer>
-          <ListPic src={staff.imageUrl} />
+          <ListPic src={staff.photo_url} />
         </StaffMember>
       
       ))}

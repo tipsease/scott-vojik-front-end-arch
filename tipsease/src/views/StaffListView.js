@@ -31,7 +31,7 @@ class StaffListView extends React.Component {
     ev.preventDefault();
     const searchedEmployee = this.props.staff.filter(employee => {
       
-      if (employee.name.toLowerCase().includes(this.state.searchText)) {
+      if (employee.first_name.toLowerCase().includes(this.state.searchText)) {
         return employee;
       }
     })

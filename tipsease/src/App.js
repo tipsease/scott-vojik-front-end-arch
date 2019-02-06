@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom"
 import { Route, NavLink } from "react-router-dom"
 import styled from "styled-components";
 

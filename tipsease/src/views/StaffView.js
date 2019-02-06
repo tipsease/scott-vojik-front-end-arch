@@ -9,14 +9,15 @@ class StaffView extends React.Component {
 
   state ={
     staff: {
-      name: '',
-      description: '',
-      imageUrl: '',
-      price: '',
+      first_name: '',
+      photo_url: '',
+      amount: '',
       id: null,
     },
     isEditing: false,
   }
+
+  
 
   componentDidMount() {
     if (this.props.staff.length === 0) {
@@ -35,6 +36,7 @@ class StaffView extends React.Component {
 
 
   addNewTip = (id) => {
+    console.log(this.state.staff);
     this.props.addTip(this.state.staff, id);
   }
 
