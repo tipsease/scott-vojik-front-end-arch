@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { getStaff, addTip } from "../store/actions"
+import { getStaff, addTip, getTips } from "../store/actions"
 
 import Staff from "../Components/Staff/Staff"
 
@@ -39,7 +39,7 @@ class StaffView extends React.Component {
 
   render() {
     return (
-      <Staff addNewTip={this.addNewTip} changeHandler={this.changeHandler} stateStaff={this.state.staff} staff={this.props.staff} history={this.props.history} match={this.props.match} />
+      <Staff addNewTip={this.addNewTip} tips={this.props.tips} changeHandler={this.changeHandler} stateStaff={this.state.staff} staff={this.props.staff} history={this.props.history} match={this.props.match} />
     )
   }
 }
@@ -50,5 +50,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getStaff, addTip }
+  { getStaff, addTip, getTips }
 )(StaffView);

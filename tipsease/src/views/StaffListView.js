@@ -34,7 +34,7 @@ class StaffListView extends React.Component {
       if (employee.first_name.toLowerCase().includes(this.state.searchText)) {
         return employee;
       } else {
-        return undefined;
+        return 
       }
     })
 

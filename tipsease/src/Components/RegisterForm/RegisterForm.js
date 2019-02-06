@@ -48,7 +48,7 @@ function RegisterForm(props) {
     } else {
       props.addNewStaff();
     }
-    props.history.push('/staff-list')
+    props.history.push('/staff-list/:id')
   }
 
   return (

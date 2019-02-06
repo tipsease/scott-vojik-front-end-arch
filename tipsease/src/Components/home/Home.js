@@ -8,7 +8,7 @@ function Home(props) {
 
   return (
     <div>
-      <p>Landing page here?</p>
+      <p>Individual Staff Profile Page</p>
     </div>
   )
 }

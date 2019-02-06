@@ -8,6 +8,9 @@ import {
   TIP_STAFF_START,
   TIP_STAFF_SUCCESS,
   TIP_STAFF_FAILURE,
+  FETCH_TIPS_START,
+  FETCH_TIPS_SUCCESS,
+  FETCH_TIPS_FAILURE
 } from "../actions"
 
 
@@ -16,6 +19,7 @@ const initialState = {
   error: '',
   isAddingStaff: false,
   isEditing: false,
+  tips: [],
 }
 
 const staff = (state = initialState, action) => {
@@ -60,6 +64,22 @@ const staff = (state = initialState, action) => {
         error: ''
       }
     case TIP_STAFF_FAILURE:
+      return {
+        ...state,
+        error: action.payload
+      }
+    case FETCH_TIPS_START:
+      return {
+        ...state,
+        error: ''
+      }
+    case FETCH_TIPS_SUCCESS:
+      return {
+        ...state,
+        tips: action.payload,
+        error: ''
+      }
+    case FETCH_TIPS_FAILURE:
       return {
         ...state,
         error: action.payload

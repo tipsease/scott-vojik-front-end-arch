@@ -1,4 +1,5 @@
 import React from "react"
+import StaffListView from "../../views/StaffListView";
 
 const authenticate = HomeView => Login =>
   class extends React.Component {
@@ -17,7 +18,11 @@ const authenticate = HomeView => Login =>
     }
 
     render() {
-      if (this.state.staffLoggedIn) return <HomeView />;
+      if (this.state.staffLoggedIn) {
+        return <HomeView />;
+      } else if (this.state.patronLoggedIn) {
+        return <StaffListView />;
+      }
       // if (this.state.patronLoggedIn) return <PatronHomeView />
       return <Login />
     }

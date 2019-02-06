@@ -1,4 +1,6 @@
 import React from "react";
+import { withRouter } from "react-router"
+import axios from 'axios';
 
 import styled from "styled-components";
 
@@ -70,17 +72,59 @@ const RadioFont = styled.label`
 
 class Login extends React.Component {
   state = {
-    username: '',
-    password: ''
+    email: '',
+    password: '',
+    tipperBoolean: false,
+    
   }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleLogin = e => {
-    localStorage.setItem(`${this.state.username}`, 'user')
+  // handleLogin = e => {
+  //   localStorage.setItem(`${this.state.username}`, 'user')
+  // }
+
+  handleRegister = (e) => {
+    e.preventDefault();
+    this.props.history.push("/staff-form")
+
   }
+
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const endpoint = 'https://tipsease-david-freitag-backend.herokuapp.com/api/';
+
+    axios
+      .post(endpoint, this.state)
+      .then(res => {
+        localStorage.setItem('jwt', res.data.token);
+        this.props.history.push('/');
+      })
+      .catch(err => console.log(err));
+  };
+
+
+
+  handleSignup = event => {
+    event.preventDefault();
+
+    axios
+      .post('https://tipsease-david-freitag-backend.herokuapp.com/api/', {
+        email: this.state.email,
+        password: this.state.password,
+        tipperBoolean: this.state.tipperBoolean
+        //department: this.state.department
+      })
+      .then(res => {
+        localStorage.setItem('jwt', res.data.token);
+
+        this.props.history.push('/');
+      })
+      .catch(err => this.setState({ errorMsg: 'lol try again nub' }));
+  };
 
   render() {
     return (
@@ -88,8 +132,8 @@ class Login extends React.Component {
         <Logo src={require("../../tipease3.png")} alt="logo"/>
         <StyledForm>
 
-          <UserInfo type="text" placeholder="User Name" name="username" value={this.state.username} onChange={this.handleInputChange} required />
-          <UserInfo type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleInputChange} required />
+          <UserInfo type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleInputChange}  />
+          <UserInfo type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleInputChange}  />
 
           <ButtonContainer>
 
@@ -97,11 +141,11 @@ class Login extends React.Component {
 
               <RadioContainer>
                 <RadioButton type="radio" id="employee"
-                name="validation" value="employee" />
+                name="tipperBoolean" value="employee" />
                 <RadioFont>Employee</RadioFont>
 
                 <RadioButton type="radio" id="patron"
-                name="validation" value="patron" defaultChecked />
+                name="tipperBoolean" value="patron" defaultChecked />
                 <RadioFont>Patron</RadioFont>
               </RadioContainer>
 
@@ -109,7 +153,7 @@ class Login extends React.Component {
 
             </div>
             
-            <LoginButtons onClick={this.handleLogin}>Register</LoginButtons>
+            <LoginButtons onClick={this.handleRegister}>Register</LoginButtons>
           </ButtonContainer>
 
         </StyledForm>
@@ -120,4 +164,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

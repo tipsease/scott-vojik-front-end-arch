@@ -78,7 +78,7 @@ function Staff (props) {
     <StaffContainer>
       <IndividualAvatar src={staffMember.photo_url} alt="avatar"/>
       <StaffName>Staff Member: {staffMember.first_name}</StaffName>
-      <TipAmount>Tip: ${staffMember.amount}</TipAmount>
+      <TipAmount>Tip: ${staffMember.tip_amount}</TipAmount>
 
       <StyledForm>
         <TipInput type="number" min="0" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.stateStaff.amount}/>
