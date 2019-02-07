@@ -20,6 +20,7 @@ const initialState = {
   isAddingStaff: false,
   isEditing: false,
   tips: [],
+  isPatron: null,
 }
 
 const staff = (state = initialState, action) => {
@@ -60,8 +61,8 @@ const staff = (state = initialState, action) => {
     case TIP_STAFF_SUCCESS:
       return {
         ...state,
-        staff: action.payload,
-        error: ''
+        error: '',
+        tips: action.payload
       }
     case TIP_STAFF_FAILURE:
       return {

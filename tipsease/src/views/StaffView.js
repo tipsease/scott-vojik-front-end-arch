@@ -14,40 +14,42 @@ class StaffView extends React.Component {
       amount: '',
       id: null,
     },
-    newTip: {
-      tipper_id: 2,
-      tippee_id: 2,
+    tipData: {
+      tipper_id: '',
+      tippee_id: '',
       amount: '',
-      date: '123456789',
-    },
-    isEditing: false,
-    tipData: []
+    }
   }
 
   componentDidMount() {
     if (this.props.staff.length === 0) {
       this.props.getStaff();
     }
-    this.setState({ tipData: this.props.getTips(2) })  
+    const tipperId = localStorage.getItem("userId");
+    this.setState({ tipData: {...this.state.tipData, tippee_id: this.props.match.params.id, tipper_id: tipperId}})
+
   }
 
   changeHandler = ev => {
-    this.setState ({
+    this.setState({
       staff: {
         ...this.state.staff,
+        [ev.target.name]: ev.target.value
+      },
+      tipData: {
         [ev.target.name]: ev.target.value
       }
     });
   };
 
-  addNewTip = (id) => {
-    console.log(this.state.staff);
-    this.props.addTip(id, this.state.newTip);
+  addNewTip = (e, id) => {
+    e.preventDefault();
+    this.props.addTip(id, this.state.tipData);
   }
 
   render() {
     return (
-      <Staff addNewTip={this.addNewTip} tips={this.props.tips} changeHandler={this.changeHandler} stateStaff={this.state.staff} staff={this.props.staff} history={this.props.history} match={this.props.match} />
+      <Staff addNewTip={this.addNewTip} tipData={this.state.tipData} tips={this.props.tips} changeHandler={this.changeHandler} stateStaff={this.state.staff} staff={this.props.staff} history={this.props.history} match={this.props.match} />
     )
   }
 }

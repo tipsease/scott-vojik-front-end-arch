@@ -63,8 +63,7 @@ function Staff (props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.addNewTip(staffMember.id);
-    console.log(staffMember);
+    props.addNewTip(staffMember);
   }
 
   const staffMember = props.staff.find(staff => `${staff.id}` === props.match.params.id);
@@ -81,8 +80,8 @@ function Staff (props) {
       <TipAmount>Tip: ${staffMember.tip_amount}</TipAmount>
 
       <StyledForm>
-        <TipInput type="number" min="0" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.stateStaff.amount}/>
-        <TipButton type="submit" onClick={handleSubmit}>Tip Staff</TipButton>
+        <TipInput type="number" min="0" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.tipData.amount}/>
+        <TipButton type="submit" onClick={(e) => handleSubmit(e)}>Tip Staff</TipButton>
       </StyledForm>
           
     </StaffContainer>
