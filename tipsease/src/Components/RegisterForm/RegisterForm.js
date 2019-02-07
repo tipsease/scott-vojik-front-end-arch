@@ -33,7 +33,6 @@ const FormButton = styled.button`
   width: 450px;
   margin: 12px auto;
   border-color: lightgray;
-
   &:hover {
     background-color: #5CA143
     color: white;
@@ -88,7 +87,7 @@ class RegisterForm extends React.Component {
       localStorage.setItem('jwt', res.data.token);
       console.log("it worked!!", res.data)
 
-      this.props.history.push(`/staff-list/`);
+      this.props.history.push("/");
     })
     .catch(err => this.setState({ errorMsg: 'This email is already in use' }));
   };
