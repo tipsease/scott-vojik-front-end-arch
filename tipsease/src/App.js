@@ -104,7 +104,7 @@ class App extends React.Component {
             )
           }/>
 
-          <Route exact path="/patron-profile/:id/edit" render={props => (
+          <Route exact path="/staff-profile/:id/edit" render={props => (
             <div>
               <PatronNavBar /> 
               <Logo src={require("./tipease3.png")} alt="logo"/>
@@ -113,7 +113,7 @@ class App extends React.Component {
             )
           }/>
 
-          <Route path="/staff-profile/:id" render={props => <StaffProfileView {...props} />} />
+          <Route exact path="/staff-profile/:id" render={props => <StaffProfileView {...props} />} />
 
 
         </AppStyled>

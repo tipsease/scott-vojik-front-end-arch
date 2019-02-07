@@ -76,7 +76,7 @@ class Login extends React.Component {
   state = {
     email: '',
     password: '',
-    tipperBoolean: false,
+    tipperBoolean: null,
     userType: '',
   }
 

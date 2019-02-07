@@ -53,9 +53,9 @@ function PatronProfile (props) {
 
   const patronUser = props.patrons.find(patron => `${patron.id}` === props.match.params.id);
 
-  const toEdit = e => {
-    props.history.push(`/patron-profile/${patronUser.id}/edit`)
-  }
+  // const toEdit = e => {
+  //   props.history.push(`/patron-profile/${patronUser.id}/edit`)
+  // }
 
   if (!patronUser) {
     return <h2>Loading data...</h2>
@@ -71,7 +71,7 @@ function PatronProfile (props) {
       <StaffName><strong>Avatar URL:</strong> {patronUser.photo_url}</StaffName>
 
 
-      <FormButton onClick={toEdit}>Edit Profile</FormButton>     
+      {/* <FormButton onClick={toEdit}>Edit Profile</FormButton>      */}
     </StaffContainer>
   )
 

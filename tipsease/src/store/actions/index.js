@@ -31,7 +31,7 @@ export const GET_USERTYPE_SUCCESS = "GET_USERTYPE_SUCCESS"
 export const getStaff = () => dispatch => {
   dispatch({ type: FETCH_STAFF_START });
   axios
-    .get("https://tipsease-david-freitag-backend.herokuapp.com/api/tippees")
+    .get("https://tipsease-backend.herokuapp.com/api/tippees")
     .then(res => dispatch ({ type: FETCH_STAFF_SUCCESS, payload: res.data }))
     .catch(err => dispatch ({ type: FETCH_STAFF_FAILURE, payload: err }));
 }
