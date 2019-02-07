@@ -27,8 +27,6 @@ class StaffProfileView extends React.Component {
     )
   }
 
-
-
 }
 
 const mapStateToProps = state => ({

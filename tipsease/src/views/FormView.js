@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import axios from "axios"
 
 import RegisterForm from '../Components/RegisterForm/RegisterForm'
 import { addStaff } from '../store/actions'
@@ -27,11 +28,26 @@ class FormView extends React.Component {
 
   addNewStaff = () => {
     this.props.addStaff(this.state.staff);
-  }  
+  }
+  
+  updateStaff = (id) => {
+    axios
+      .put(`https://tipsease-david-freitag-backend.herokuapp.com/api/tippees/${id}`, this.state.item)
+      .then(res => {
+        this.setState({
+          staff: res.data,
+          isUpdating: false,
+        });
+        this.props.history.push(`/staff-profile/${id}`);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
-      <RegisterForm Form addNewStaff={this.addNewStaff} changeHandler={this.changeHandler} staff={this.state.staff} />
+      <RegisterForm Form addNewStaff={this.addNewStaff} updateStaff={this.updateStaff} changeHandler={this.changeHandler} staff={this.state.staff} />
     )
   }
 

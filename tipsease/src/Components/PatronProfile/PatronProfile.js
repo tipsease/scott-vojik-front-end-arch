@@ -33,11 +33,29 @@ const StaffName = styled.p`
   }
 `
 
+const FormButton = styled.button`
+  padding: 30px 10px 30px;
+  border-radius: 20px;
+  font-size: 1.8rem;
+  width: 450px;
+  margin: 12px auto;
+  border-color: lightgray;
+
+  &:hover {
+    background-color: #5CA143
+    color: white;
+  }
+`
+
 
 
 function PatronProfile (props) {
 
   const patronUser = props.patrons.find(patron => `${patron.id}` === props.match.params.id);
+
+  const toEdit = e => {
+    props.history.push(`/patron-profile/${patronUser.id}/edit`)
+  }
 
   if (!patronUser) {
     return <h2>Loading data...</h2>
@@ -53,7 +71,7 @@ function PatronProfile (props) {
       <StaffName><strong>Avatar URL:</strong> {patronUser.photo_url}</StaffName>
 
 
-      <button>Edit Profile</button>     
+      <FormButton onClick={toEdit}>Edit Profile</FormButton>     
     </StaffContainer>
   )
 

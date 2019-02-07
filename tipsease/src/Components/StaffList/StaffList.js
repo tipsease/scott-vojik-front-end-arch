@@ -27,6 +27,7 @@ function StaffList(props) {
     font-weight:bold;
     border: 2px solid #86A38C;
     border-radius: 5px;  
+    background-color: white;
 
     &:hover {
       color: #67AB4C;

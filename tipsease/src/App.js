@@ -12,6 +12,7 @@ import Login from "./Components/Login/Login"
 import { getUserType } from './store/actions/index'
 import PatronProfileView from "./views/PatronProfileView"
 import StaffProfileView from "./views/StaffProfileView"
+import UpdateForm from "./Components/UpdateForm/UpdateForm"
 
 
 import './App.css';
@@ -94,11 +95,20 @@ class App extends React.Component {
           <Route path="/staff-form" render={props => <FormView {...props} /> } />
           <Route exact path="/" component={Login} />
 
-          <Route path="/patron-profile/:id" render={props => (
+          <Route exact path="/patron-profile/:id" render={props => (
             <div>
               <PatronNavBar /> 
               <Logo src={require("./tipease3.png")} alt="logo"/>
               <PatronProfileView {...props} /> 
+            </div>
+            )
+          }/>
+
+          <Route exact path="/patron-profile/:id/edit" render={props => (
+            <div>
+              <PatronNavBar /> 
+              <Logo src={require("./tipease3.png")} alt="logo"/>
+              <UpdateForm {...props} /> 
             </div>
             )
           }/>
