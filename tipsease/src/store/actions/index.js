@@ -4,9 +4,17 @@ export const FETCH_STAFF_START = "FETCH_STAFF_START"
 export const FETCH_STAFF_SUCCESS = "FETCH_STAFF_SUCCESS"
 export const FETCH_STAFF_FAILURE = "FETCH_STAFF_FAILURE"
 
+export const FETCH_PATRONS_START = "FETCH_PATRONS_START"
+export const FETCH_PATRONS_SUCCESS = "FETCH_PATRONS_SUCCESS"
+export const FETCH_PATRONS_FAILURE = "FETCH_PATRONS_FAILURE"
+
 export const ADD_STAFF_START = "ADD_STAFF_START"
 export const ADD_STAFF_SUCCESS = "ADD_STAFF_SUCCESS"
 export const ADD_STAFF_FAILURE = "ADD_STAFF_FAILURE"
+
+// export const ADD_PATRON_START = "ADD_PATRON_START"
+// export const ADD_PATRON_SUCCESS = "ADD_PATRON_SUCCESS"
+// export const ADD_PATRON_FAILURE = "ADD_PATRON_FAILURE"
 
 export const TIP_STAFF_START = "TIP_STAFF_START"
 export const TIP_STAFF_SUCCESS = "TIP_STAFF_SUCCESS"
@@ -28,6 +36,14 @@ export const getStaff = () => dispatch => {
     .catch(err => dispatch ({ type: FETCH_STAFF_FAILURE, payload: err }));
 }
 
+export const getPatrons = () => dispatch => {
+  dispatch({ type: FETCH_PATRONS_START });
+  axios
+    .get("https://tipsease-backend.herokuapp.com/api/tippers")
+    .then(res => dispatch ({ type: FETCH_PATRONS_SUCCESS, payload: res.data }))
+    .catch(err => dispatch ({ type: FETCH_PATRONS_FAILURE, payload: err }));
+}
+
 export const getTips = id => dispatch => {
   dispatch({ type: FETCH_TIPS_START });
   axios
@@ -40,10 +56,18 @@ export const getTips = id => dispatch => {
 export const addStaff = staff => dispatch => {
   dispatch({ type: ADD_STAFF_START });
   axios
-    .post("https://tipsease-david-freitag-backend.herokuapp.com/api/tippees/", staff)
+    .post("https://tipsease-backend.herokuapp.com/api/register", staff)
     .then(res => dispatch ({ type: ADD_STAFF_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ADD_STAFF_FAILURE, payload: err }));
 }
+
+// export const addPatron = patron => dispatch => {
+//   dispatch({ type: ADD_PATRON_START });
+//   axios
+//     .post("https://tipsease-david-freitag-backend.herokuapp.com/api/tippees/", patron)
+//     .then(res => dispatch ({ type: ADD_PATRON_SUCCESS, payload: res.data }))
+//     .catch(err => dispatch({ type: ADD_PATRON_FAILURE, payload: err }));
+// }
 
 export const addTip = (id, tip) => dispatch => {
   console.log("TIPPPP", tip);

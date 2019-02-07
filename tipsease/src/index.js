@@ -8,8 +8,6 @@ import thunk from "redux-thunk";
 import logger from "redux-logger"
 import { BrowserRouter as Router } from "react-router-dom"
 
-import authenticate from "./Components/Authenticate/authenticate"
-import Login from "./Components/Login/Login"
 
 import rootReducer from "./store/reducers"
 

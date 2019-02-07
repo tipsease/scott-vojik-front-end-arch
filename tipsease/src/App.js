@@ -1,12 +1,16 @@
 import React from 'react';
-import { Route, NavLink } from "react-router-dom"
+import { Route } from "react-router-dom"
 import styled from "styled-components";
+import { connect } from "react-redux"
+import { withRouter } from "react-router";
 
-import HomeView from "./views/HomeView"
+import PatronNavBar from "./Components/NavBar/PatronNavBar"
 import StaffListView from "./views/StaffListView"
 import StaffView from './views/StaffView';
 import FormView from './views/FormView';
 import Login from "./Components/Login/Login"
+import { getUserType } from './store/actions/index'
+import PatronHomeView from "./views/PatronHomeView"
 
 import './App.css';
 
@@ -16,12 +20,12 @@ const AppStyled = styled.div`
   text-align: center;
 `
 
-const StyleNavBar = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
-`
+// const StyleNavBar = styled.div`
+//   width: 100%;
+//   margin: 0 auto;
+//   display: flex;
+//   justify-content: flex-start;
+// `
 
 const Logo = styled.img`
   height: 300px;
@@ -30,6 +34,14 @@ const Logo = styled.img`
 `
 
 class App extends React.Component {
+
+  state = {
+    userType: ''
+  }
+
+  componentDidMount = () => {
+    this.props.getUserType();
+  }
  
 
   handleLogout = (e) => {
@@ -39,33 +51,54 @@ class App extends React.Component {
 
   
   render() {
-    return (
-      <AppStyled>          
-        <StyleNavBar>
+    
+      return (
+        <AppStyled>          
+          {/* <StyleNavBar> */}
+            
+            {/* <NavLink className="nav-link" exact to="/staff-form">Register</NavLink>
+            */}
           
-          {/* <NavLink className="nav-link" exact to="/staff-form">Register</NavLink>
-          <NavLink className="nav-link" exact to="/">Home</NavLink> */}
-          <NavLink className="nav-link" to="/staff-list">Staff</NavLink>
-          <NavLink className="nav-link" onClick={this.handleLogout} to="/login">Logout</NavLink>
+            {/* <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
+            <NavLink className="nav-link" exact to="/patron-profile">Profile</NavLink>
+            <NavLink className="nav-link" exact to="/staff-list">Home</NavLink>
+            
 
-        </StyleNavBar>
+          </StyleNavBar> */}
+          
+          
+  {/* 
+          <Route path="/" component={} /> */}
+          
+          <Route exact path="/staff-list" render={props => (
+            <div>
+              <PatronNavBar />
+              <Logo src={require("./tipease3.png")} alt="logo"/>
+              <StaffListView {...props} />
+            </div>
+            )} 
+          />
 
-        <Logo src={require("./tipease3.png")} alt="logo"/>
+          {/* <Route path="/staff-list" component={NavBar} /> */}
+          <Route path="/staff-list/:id" component={StaffView} />
+          <Route path="/staff-form" render={props => <FormView {...props} /> } />
+          <Route exact path="/" component={Login} />
 
-        <Route exact path="/" component={HomeView} />
-        
-        <Route exact path="/staff-list" render={props => (
-          <StaffListView {...props} />
-          )} 
-        />
+          <Route path="/patron-profile/:id" render={props => <PatronHomeView {...props} />} />
 
-        <Route path="/staff-list/:id" component={StaffView} />
-        <Route path="/staff-form" render={props => <FormView {...props} /> } />
-        <Route path="/login" component={Login} />
-
-      </AppStyled>
-    );
-  }
+        </AppStyled>
+      );
+    }
+  
 }
 
-export default App;
+const mapStateToProps = state => ({
+  userType: state.userType
+})
+
+export default withRouter(connect(
+  mapStateToProps,
+  { getUserType }
+)(App))
+
+// export default App;

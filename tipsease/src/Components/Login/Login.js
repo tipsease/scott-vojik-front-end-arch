@@ -78,7 +78,7 @@ class Login extends React.Component {
     email: '',
     password: '',
     tipperBoolean: false,
-    isPatron: '',
+    userType: '',
   }
 
     //TEST STATE
@@ -113,37 +113,42 @@ class Login extends React.Component {
         localStorage.setItem('jwt', res.data.token);
         localStorage.setItem('userId', res.data.user.id);
         localStorage.setItem('userType', res.data.user.role)
-        this.setState({ isPatron: localStorage.getItem('userType') })
-        this.props.getUserType(this.state.isPatron);
-        this.props.history.push('/staff-list');
+
+        this.setState({ userType: localStorage.getItem('userType') })
+        this.props.getUserType(this.state.userType);
+        if (this.state.userType === "tipper") {
+          return this.props.history.push('/staff-list');
+        } else {
+          return this.props.history.push(`/patron-profile/${localStorage.getItem('userId')}`)
+        }
       })
       .catch(err => console.log(err));     
    
   };
 
 
-  handleSignup = event => {
-    event.preventDefault();
+  // handleSignup = event => {
+  //   event.preventDefault();
 
-    axios
-      .post('https://tipsease-david-freitag-backend.herokuapp.com/api/', {
-        email: this.state.email,
-        password: this.state.password,
-        tipperBoolean: this.state.tipperBoolean
-        //department: this.state.department
-      })
-      .then(res => {
-        localStorage.setItem('jwt', res.data.token);
+  //   axios
+  //     .post('https://tipsease-david-freitag-backend.herokuapp.com/api/', {
+  //       email: this.state.email,
+  //       password: this.state.password,
+  //       // tipperBoolean: this.state.tipperBoolean
+  //       //department: this.state.department
+  //     })
+  //     .then(res => {
+  //       localStorage.setItem('jwt', res.data.token);
 
-        this.props.history.push('/');
-      })
-      .catch(err => this.setState({ errorMsg: 'lol try again nub' }));
-  };
+  //       this.props.history.push('/');
+  //     })
+  //     .catch(err => this.setState({ errorMsg: 'lol try again nub' }));
+  // };
 
   render() {
     return (
       <LoginContainer>
-        {/* <Logo src={require("../../tipease3.png")} alt="logo"/> */}
+        <Logo src={require("../../tipease3.png")} alt="logo"/>
         <StyledForm>
 
           <UserInfo type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}  />

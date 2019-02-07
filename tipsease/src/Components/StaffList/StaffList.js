@@ -1,6 +1,10 @@
 import React from "react"
 import styled from "styled-components";
 
+import { NavLink } from "react-router-dom"
+
+import { withRouter } from "react-router"
+
 function StaffList(props) {
 
   function routeToStaff(ev, staff) {
@@ -45,8 +49,13 @@ function StaffList(props) {
     font-size: 1.5rem;
   `
 
+ 
+
   return (
     <div>
+     
+
+
       <StaffListContainer>
       {props.staff.map(staff => (
         <StaffMember onClick={ev => routeToStaff(ev, staff)} key={staff.id}>
@@ -62,4 +71,4 @@ function StaffList(props) {
   )
 }
 
-export default StaffList
+export default withRouter(StaffList);

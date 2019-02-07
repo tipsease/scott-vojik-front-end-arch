@@ -40,6 +40,23 @@ const FormButton = styled.button`
   }
 `
 
+const RadioContainer = styled.div`
+  margin: 8px auto 20px;
+  display: flex;
+  justify-content: center;
+`
+
+const RadioButton = styled.input`
+  padding: 16px;
+  width: 16px;
+  height: 16px;
+  margin: 0 5%;
+`
+
+const RadioFont = styled.label`
+  font-size: 1.6rem;
+`
+
 class RegisterForm extends React.Component {
 
   state = {
@@ -47,6 +64,7 @@ class RegisterForm extends React.Component {
     last_name: "",
     email: "",   //YOU MUSt ALWAYS HAVE A UNIQUE EMAIL
     password: "",
+    tipperBoolean: null,
     errorMsg: null
   }
 
@@ -62,7 +80,9 @@ class RegisterForm extends React.Component {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       email: this.state.email,
-      password: this.state.password     
+      password: this.state.password,
+      tipperBoolean: this.state.tipperBoolean
+     
     })
     .then(res => {
       localStorage.setItem('jwt', res.data.token);
@@ -85,6 +105,16 @@ class RegisterForm extends React.Component {
           <UserInfo type="text" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
           <UserInfo type="text" name="email" onChange={this.handleChanges} placeholder="Email" />
           <UserInfo type="text" name="password" onChange={this.handleChanges} placeholder="Password" />
+
+          <RadioContainer>
+            <RadioButton type="radio" id="employee"
+            name="tipperBoolean" value={false} onChange={this.handleChange} defaultChecked />
+            <RadioFont>Employee</RadioFont>
+
+            <RadioButton type="radio" id="patron"
+            name="tipperBoolean" value={true} onChange={this.handleChange}  />
+            <RadioFont>Patron</RadioFont>
+          </RadioContainer>
           {/* <input type="text" name="name" onChange={props.changeHandler} placeholder="name" value={props.staff.name} /> */}
   
           <FormButton onClick={this.handleSignup}>Register User</FormButton>

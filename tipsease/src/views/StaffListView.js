@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import { NavLink } from "react-router-dom"
 
 import { getStaff } from "../store/actions"
 
@@ -33,13 +34,10 @@ class StaffListView extends React.Component {
       
       if (employee.first_name.toLowerCase().includes(this.state.searchText)) {
         return employee;
-      } else {
-        return 
-      }
+      } 
     })
 
     this.setState({ searchPosts: searchedEmployee })
-    
   }
 
   render() {
