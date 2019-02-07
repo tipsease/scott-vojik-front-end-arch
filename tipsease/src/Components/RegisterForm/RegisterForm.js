@@ -2,15 +2,24 @@ import React from "react";
 import { withRouter } from "react-router"
 import styled from "styled-components"
 import axios from "axios"
+import { NavLink } from "react-router-dom"
+
 
 const FormContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center
+  margin-bottom: 64px;
 `
 
 const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+`
+const StyledFormDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,11 +58,30 @@ const RadioButton = styled.input`
   padding: 16px;
   width: 16px;
   height: 16px;
-  margin: 0 5%;
+  margin: 0 20px;
 `
 
 const RadioFont = styled.label`
   font-size: 1.6rem;
+`
+
+const StyleNavBar = styled.div`
+  height: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`
+
+const Logo = styled.img`
+  height: 300px;
+  width: auto;
+  margin: 0px auto 24px;
+`
+
+const LinkHandle = styled.div`
+  margin-left: 5%;
+  display: flex;
+  justify-content: flex-start;
 `
 
 class RegisterForm extends React.Component {
@@ -103,6 +131,14 @@ class RegisterForm extends React.Component {
     
     return (
 
+      <div>
+
+      <StyleNavBar/>
+         <LinkHandle>
+        <NavLink className="nav-link" to="/">Login</NavLink>
+         </LinkHandle>
+      <StyleNavBar/>
+      <Logo src={require("../../tipease3.png")} alt="logo"/>
       <FormContainer>
   
         <StyledForm>
@@ -110,14 +146,14 @@ class RegisterForm extends React.Component {
           <UserInfo type="text" name="first_name" onChange={this.handleChanges} placeholder="First Name" />
           <UserInfo type="text" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
           <UserInfo type="text" name="email" onChange={this.handleChanges} placeholder="Email" />
-          <UserInfo type="text" name="password" onChange={this.handleChanges} placeholder="Password" />
+          <UserInfo type="password" name="password" onChange={this.handleChanges} placeholder="Password" />
           <UserInfo type="text" name="photo_url" onChange={this.handleChanges} placeholder="Profile Picture (URL)" />
 
           {this.state.tipperBoolean == "true" ? null : (
-            <div>
+            <StyledFormDiv>
           <UserInfo type="text" name="tagline" onChange={this.handleChanges} placeholder="Tagline" />
           <UserInfo type="text" name="start_date" onChange={this.handleChanges} placeholder="Job Start Date" />
-          </div>
+          </StyledFormDiv>
           )}
 
           <RadioContainer>
@@ -136,6 +172,7 @@ class RegisterForm extends React.Component {
         </StyledForm>
   
       </FormContainer>
+      </div>
     )
   }
   

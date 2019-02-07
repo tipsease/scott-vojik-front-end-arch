@@ -48,6 +48,13 @@ const FormButton = styled.button`
 const StyleNavBar = styled.div`
   height: 20px;
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`
+
+const LinkHandle = styled.div`
+  margin-left: 5%;
+  display: flex;
   justify-content: flex-start;
 `
 
@@ -72,7 +79,11 @@ function staffProfile (props) {
   return (
     <div>
       <StyleNavBar/>
+         <LinkHandle>
         <NavLink className="nav-link" onClick={handleLogout} to="/">Logout</NavLink>
+        {/* <NavLink className="nav-link" to={`/staff-profile/${staffUser.id}`}>Profile</NavLink> */}
+
+         </LinkHandle>
       <StyleNavBar/>
       
       <div>

@@ -14,10 +14,15 @@ body {
 .nav-link {
   text-decoration: none;
   margin: 20px 2%;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: bold;
   color: black;
 }
 
 .nav-link:hover {
   color: #67AB4C;
+}
+
+input[type="radio"]{
+  -webkit-appearance: radio;
 }

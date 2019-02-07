@@ -94,7 +94,6 @@ class App extends React.Component {
 
           <Route path="/register-form" render={props => (
             <div>
-              <Logo src={require("./tipease3.png")} alt="logo"/> 
               <FormView {...props} /> 
             </div>
             )
@@ -113,8 +112,6 @@ class App extends React.Component {
 
           <Route exact path="/staff-profile/:id/edit" render={props => (
             <div>
-              <PatronNavBar /> 
-              <Logo src={require("./tipease3.png")} alt="logo"/>
               <UpdateForm {...props} /> 
             </div>
             )

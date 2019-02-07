@@ -2,12 +2,14 @@ import React from "react";
 import { withRouter } from "react-router"
 import styled from "styled-components"
 import axios from "axios"
+import { NavLink } from "react-router-dom"
 
 const FormContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center
+  margin-bottom: 64px;
 `
 
 const StyledForm = styled.form`
@@ -40,6 +42,25 @@ const FormButton = styled.button`
   }
 `
 
+const StyleNavBar = styled.div`
+  height: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`
+
+const LinkHandle = styled.div`
+  margin-left: 5%;
+  display: flex;
+  justify-content: flex-start;
+`
+
+const Logo = styled.img`
+  height: 300px;
+  width: auto;
+  margin: 24px auto;
+`
+
 
 class UpdateForm extends React.Component {
 
@@ -54,6 +75,14 @@ class UpdateForm extends React.Component {
 
   handleChanges = e => {
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleLogout = (e) => {
+    localStorage.clear();
+  }
+
+  handleHome = e => {
+    
   }
 
   handleEdit= event => {
@@ -76,25 +105,39 @@ class UpdateForm extends React.Component {
   };
 
 
+
   render() {
+    const staffId = localStorage.getItem("userId")
     return (
 
-      <FormContainer>
-  
-        <StyledForm>
-  
-          <UserInfo type="text" name="first_name" onChange={this.handleChanges} placeholder="First Name" />
-          <UserInfo type="text" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
-          <UserInfo type="text" name="email" onChange={this.handleChanges} placeholder="Email" />
-          <UserInfo type="text" name="photo_url" onChange={this.handleChanges} placeholder="Profile Picture (URL)" />
-          <UserInfo type="text" name="tagline" onChange={this.handleChanges} placeholder="Tagline" />
-          <UserInfo type="text" name="start_date" onChange={this.handleChanges} placeholder="Job Start Date" />
-  
-          <FormButton onClick={this.handleEdit}>Edit User</FormButton>
-  
-        </StyledForm>
-  
-      </FormContainer>
+      <div>
+        <StyleNavBar/>
+          <LinkHandle>
+          <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
+          <NavLink className="nav-link" to={`/staff-profile/${staffId}`}>Profile</NavLink>
+
+          </LinkHandle>
+        <StyleNavBar/>
+
+        <Logo src={require("../../tipease3.png")} alt="logo"/>
+
+        <FormContainer>
+    
+          <StyledForm>
+    
+            <UserInfo type="text" name="first_name" onChange={this.handleChanges} placeholder="First Name" />
+            <UserInfo type="text" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
+            <UserInfo type="text" name="email" onChange={this.handleChanges} placeholder="Email" />
+            <UserInfo type="text" name="photo_url" onChange={this.handleChanges} placeholder="Profile Picture (URL)" />
+            <UserInfo type="text" name="tagline" onChange={this.handleChanges} placeholder="Tagline" />
+            <UserInfo type="text" name="start_date" onChange={this.handleChanges} placeholder="Job Start Date" />
+    
+            <FormButton onClick={this.handleEdit}>Edit User</FormButton>
+    
+          </StyledForm>
+    
+        </FormContainer>
+      </div>
     )
   }
   

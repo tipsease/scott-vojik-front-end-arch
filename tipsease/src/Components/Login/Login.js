@@ -76,17 +76,9 @@ class Login extends React.Component {
   state = {
     email: '',
     password: '',
-    tipperBoolean: null,
+    tipperBoolean: false,
     userType: '',
   }
-
-    //TEST STATE
-    // state = {
-    //   email: "kl.hawaii3e243@gmail.com",
-    //   password: "test",
-    //   tipperBoolean: null
-    // true: tipper
-    // }
 
   handleRegister = (e) => {
     e.preventDefault();
@@ -99,7 +91,6 @@ class Login extends React.Component {
       [e.target.name]: e.target.value
     })
   }
-
 
   handleSubmit = event => {
 
@@ -123,27 +114,7 @@ class Login extends React.Component {
         }
       })
       .catch(err => console.log(err));     
-   
   };
-
-
-  // handleSignup = event => {
-  //   event.preventDefault();
-
-  //   axios
-  //     .post('https://tipsease-david-freitag-backend.herokuapp.com/api/', {
-  //       email: this.state.email,
-  //       password: this.state.password,
-  //       // tipperBoolean: this.state.tipperBoolean
-  //       //department: this.state.department
-  //     })
-  //     .then(res => {
-  //       localStorage.setItem('jwt', res.data.token);
-
-  //       this.props.history.push('/');
-  //     })
-  //     .catch(err => this.setState({ errorMsg: 'lol try again nub' }));
-  // };
 
   render() {
     return (
