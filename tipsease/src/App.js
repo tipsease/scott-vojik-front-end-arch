@@ -84,7 +84,9 @@ class App extends React.Component {
           {/* <Route path="/staff-list" component={NavBar} /> */}
           <Route path="/staff-list/:id" render={props => (
             <div>
-               <PatronNavBar {...props} /> <StaffView {...props} />   
+               <PatronNavBar {...props} /> 
+               <Logo src={require("./tipease3.png")} alt="logo"/>
+               <StaffView {...props} />   
             </div>
           )}/>
 
