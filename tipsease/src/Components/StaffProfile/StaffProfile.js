@@ -80,9 +80,7 @@ function staffProfile (props) {
     <div>
       <StyleNavBar/>
          <LinkHandle>
-        <NavLink className="nav-link" onClick={handleLogout} to="/">Logout</NavLink>
-        {/* <NavLink className="nav-link" to={`/staff-profile/${staffUser.id}`}>Profile</NavLink> */}
-
+          <NavLink className="nav-link" onClick={handleLogout} to="/">Logout</NavLink>
          </LinkHandle>
       <StyleNavBar/>
       

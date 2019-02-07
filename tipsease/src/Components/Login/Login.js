@@ -11,6 +11,7 @@ const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center
+  
 `
 
 const Logo = styled.img`
@@ -20,10 +21,15 @@ const Logo = styled.img`
 `
 
 const StyledForm = styled.form`
+  margin: 48px auto 0;
+  padding: 24px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
+  border: 1px solid lightgray;
+  box-shadow: 2px 1px 12px 5px #86A38C;
+  border-radius: 10px;
 `
 
 const ButtonContainer = styled.div`

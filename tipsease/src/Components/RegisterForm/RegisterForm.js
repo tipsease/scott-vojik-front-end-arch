@@ -5,19 +5,32 @@ import axios from "axios"
 import { NavLink } from "react-router-dom"
 
 
-const FormContainer = styled.div`
-  width: 100%;
+const FlexDiv = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center
-  margin-bottom: 64px;
+  justify-content: center;
+  align-items: center;
+
 `
 
-const StyledForm = styled.form`
+const FormContainer = styled.div`
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  justify-content: center;
+  margin-bottom: 64px;
+  border: 1px solid lightgray;
+  box-shadow: 2px 1px 12px 5px #86A38C;
+  border-radius: 10px;
+`
+
+const StyledForm = styled.form`
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 const StyledFormDiv = styled.div`
   display: flex;
@@ -68,8 +81,7 @@ const RadioFont = styled.label`
 const StyleNavBar = styled.div`
   height: 20px;
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
+  text-align: left;
 `
 
 const Logo = styled.img`
@@ -79,9 +91,9 @@ const Logo = styled.img`
 `
 
 const LinkHandle = styled.div`
-  margin-left: 5%;
-  display: flex;
-  justify-content: flex-start;
+  position: absolute;
+  top: 16px;
+  left: 40px;
 `
 
 class RegisterForm extends React.Component {
@@ -104,6 +116,7 @@ class RegisterForm extends React.Component {
 
   handleSignup = event => {
   event.preventDefault();
+  console.log("STATEEEE", this.state)
   axios
     .post('https://tipsease-backend.herokuapp.com/api/register', {
       // this was a mistake, but you can do it this way
@@ -131,13 +144,14 @@ class RegisterForm extends React.Component {
     
     return (
 
-      <div>
+      <FlexDiv>
 
       <StyleNavBar/>
-         <LinkHandle>
+        <LinkHandle>
         <NavLink className="nav-link" to="/">Login</NavLink>
-         </LinkHandle>
+        </LinkHandle>
       <StyleNavBar/>
+
       <Logo src={require("../../tipease3.png")} alt="logo"/>
       <FormContainer>
   
@@ -172,7 +186,7 @@ class RegisterForm extends React.Component {
         </StyledForm>
   
       </FormContainer>
-      </div>
+      </FlexDiv>
     )
   }
   
