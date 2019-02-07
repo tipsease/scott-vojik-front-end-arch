@@ -44,7 +44,8 @@ class StaffView extends React.Component {
   addNewTip = (e, id) => {
     e.preventDefault();
     this.props.addTip(id, this.state.tipData);
-    this.setState({ tipData: this.state.blankTip })
+    alert(`Thank you for tipping $${this.state.tipData.amount}!`);
+    this.setState({ tipData: this.state.blankTip });
   }
 
   render() {
