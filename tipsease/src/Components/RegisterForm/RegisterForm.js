@@ -80,7 +80,8 @@ class RegisterForm extends React.Component {
       last_name: this.state.last_name,
       email: this.state.email,
       password: this.state.password,
-      tipperBoolean: this.state.tipperBoolean
+      // tipperBoolean: this.state.tipperBoolean
+      tipperBoolean: this.state.tipperBoolean === "true" ? true : false
      
     })
     .then(res => {
@@ -107,11 +108,11 @@ class RegisterForm extends React.Component {
 
           <RadioContainer>
             <RadioButton type="radio" id="employee"
-            name="tipperBoolean" value={false} onChange={this.handleChange} defaultChecked />
+            name="tipperBoolean" value={false} onChange={this.handleChanges} defaultChecked />
             <RadioFont>Employee</RadioFont>
 
             <RadioButton type="radio" id="patron"
-            name="tipperBoolean" value={true} onChange={this.handleChange}  />
+            name="tipperBoolean" value={true} onChange={this.handleChanges}  />
             <RadioFont>Patron</RadioFont>
           </RadioContainer>
           {/* <input type="text" name="name" onChange={props.changeHandler} placeholder="name" value={props.staff.name} /> */}

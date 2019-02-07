@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router"
 import axios from 'axios';
-import { getUserType } from "../../store/actions/"
+import { getUserType, getStaff } from "../../store/actions/"
 import { connect } from "react-redux";
 
 import styled from "styled-components";
@@ -115,6 +115,7 @@ class Login extends React.Component {
 
         this.setState({ userType: localStorage.getItem('userType') })
         this.props.getUserType(this.state.userType);
+        this.props.getStaff();
         if (this.state.userType === "tippee") {       //if employee
           return this.props.history.push(`/staff-profile/${localStorage.getItem('userId')}`);
         } else {
@@ -188,7 +189,7 @@ const mapStateToProps = state => ({
 
 export default withRouter(connect(
   mapStateToProps,
-  { getUserType }
+  { getUserType, getStaff }
 )(Login))
 
 // export default withRouter(Login);
