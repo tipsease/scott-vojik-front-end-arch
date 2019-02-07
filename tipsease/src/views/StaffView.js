@@ -20,9 +20,10 @@ class StaffView extends React.Component {
     if (this.props.staff.length === 0) {
       this.props.getStaff();
     }
-    const tipperId = localStorage.getItem("userId");
-    this.setState({ tipData: {...this.state.tipData, tippee_id: this.props.match.params.id, tipper_id: tipperId}})
-
+    this.props.getTips(this.props.match.params.id);
+    const tipperId= localStorage.getItem("userId");
+    this.setState({tipData: {...this.state.tipData, tippee_id: this.props.match.params.id, tipper_id: tipperId}})
+    console.log(this.props.match.params.id);
   }
 
   changeHandler = ev => {
@@ -33,7 +34,8 @@ class StaffView extends React.Component {
     }})
   };
 
-  addNewTip = id => {
+  addNewTip = (e, id) => {
+    e.preventDefault();
     this.props.addTip(id, this.state.tipData);
   }
 

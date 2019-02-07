@@ -28,7 +28,7 @@ export const getStaff = () => dispatch => {
     .catch(err => dispatch ({ type: FETCH_STAFF_FAILURE, payload: err }));
 }
 
-export const getTips = (id, tip) => dispatch => {
+export const getTips = id => dispatch => {
   dispatch({ type: FETCH_TIPS_START });
   axios
     .get(`https://tipsease-backend.herokuapp.com/api/tippees/${id}/tips/`)
@@ -50,13 +50,13 @@ export const addTip = (id, tip) => dispatch => {
   dispatch({ type: TIP_STAFF_START });
     axios
       .post(`https://tipsease-backend.herokuapp.com/api/tippees/${id}/tips/`, tip)
-      .then(res => dispatch ({ type: TIP_STAFF_SUCCESS, payload: res.data }))
+      .then(res => dispatch ({ type: TIP_STAFF_SUCCESS, payload: res.data.tip }))
       .catch(err => dispatch({ type: TIP_STAFF_FAILURE, payload: err }));
 }
 
-export const getUserType = (user) => dispatch => {
-  dispatch({ type: GET_USERTYPE_START });
-  axios 
-    .then(res => dispatch({ type: GET_USERTYPE_SUCCESS, payload: res}))
+export const getUserType = (userType) => {
+  console.log(userType);
+  return { type: GET_USERTYPE_SUCCESS, payload: userType};
 }
+
 

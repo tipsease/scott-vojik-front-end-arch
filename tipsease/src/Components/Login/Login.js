@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router"
 import axios from 'axios';
+import { getUserType } from "../../store/actions/"
+import { connect } from "react-redux";
 
 import styled from "styled-components";
 
@@ -71,10 +73,12 @@ const RadioFont = styled.label`
 `
 
 class Login extends React.Component {
+  
   state = {
     email: '',
     password: '',
     tipperBoolean: false,
+    isPatron: '',
   }
 
     //TEST STATE
@@ -99,6 +103,7 @@ class Login extends React.Component {
 
 
   handleSubmit = event => {
+
     event.preventDefault();
     const endpoint = 'https://tipsease-backend.herokuapp.com/api/login'; // hey, this is kai endpoint
 
@@ -107,9 +112,13 @@ class Login extends React.Component {
       .then(res => {
         localStorage.setItem('jwt', res.data.token);
         localStorage.setItem('userId', res.data.user.id);
+        localStorage.setItem('userType', res.data.user.role)
+        this.setState({ isPatron: localStorage.getItem('userType') })
+        this.props.getUserType(this.state.isPatron);
         this.props.history.push('/staff-list');
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err));     
+   
   };
 
 
@@ -169,4 +178,13 @@ class Login extends React.Component {
   }
 }
 
-export default withRouter(Login);
+const mapStateToProps = state => ({
+  isPatron: state.isPatron
+})
+
+export default withRouter(connect(
+  mapStateToProps,
+  { getUserType }
+)(Login))
+
+// export default withRouter(Login);

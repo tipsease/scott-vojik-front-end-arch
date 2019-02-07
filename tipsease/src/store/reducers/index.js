@@ -10,7 +10,8 @@ import {
   TIP_STAFF_FAILURE,
   FETCH_TIPS_START,
   FETCH_TIPS_SUCCESS,
-  FETCH_TIPS_FAILURE
+  FETCH_TIPS_FAILURE,
+  GET_USERTYPE_SUCCESS
 } from "../actions"
 
 
@@ -20,7 +21,7 @@ const initialState = {
   isAddingStaff: false,
   isEditing: false,
   tips: [],
-  isPatron: null,
+  isPatron: '',
 }
 
 const staff = (state = initialState, action) => {
@@ -62,7 +63,7 @@ const staff = (state = initialState, action) => {
       return {
         ...state,
         error: '',
-        tips: action.payload
+        tips: [...state.tips, action.payload]
       }
     case TIP_STAFF_FAILURE:
       return {
@@ -84,6 +85,11 @@ const staff = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload
+      }
+    case GET_USERTYPE_SUCCESS:
+      return {
+        ...state,
+        isPatron: action.payload,
       }
     default:
       return state;
