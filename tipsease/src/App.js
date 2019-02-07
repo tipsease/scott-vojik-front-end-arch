@@ -92,7 +92,14 @@ class App extends React.Component {
           )}/>
 
 
-          <Route path="/staff-form" render={props => <FormView {...props} /> } />
+          <Route path="/register-form" render={props => (
+            <div>
+              <Logo src={require("./tipease3.png")} alt="logo"/> 
+              <FormView {...props} /> 
+            </div>
+            )
+          }/>
+
           <Route exact path="/" component={Login} />
 
           <Route exact path="/patron-profile/:id" render={props => (

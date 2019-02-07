@@ -47,7 +47,9 @@ class UpdateForm extends React.Component {
     first_name: "",
     last_name: "",
     email: "",   //YOU MUSt ALWAYS HAVE A UNIQUE EMAIL
-    photo_url: ''
+    photo_url: '',
+    tagline: '',
+    start_date: ''
   }
 
   handleChanges = e => {
@@ -62,7 +64,9 @@ class UpdateForm extends React.Component {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       email: this.state.email,
-      photo_url: this.state.photo_url
+      photo_url: this.state.photo_url,
+      tagline: this.state.tagline,
+      start_date: this.state.start_date,
      
     })
     .then(res => {
@@ -82,7 +86,9 @@ class UpdateForm extends React.Component {
           <UserInfo type="text" name="first_name" onChange={this.handleChanges} placeholder="First Name" />
           <UserInfo type="text" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
           <UserInfo type="text" name="email" onChange={this.handleChanges} placeholder="Email" />
-          <UserInfo type="text" name="password" onChange={this.handleChanges} placeholder="Password" />
+          <UserInfo type="text" name="photo_url" onChange={this.handleChanges} placeholder="Profile Picture (URL)" />
+          <UserInfo type="text" name="tagline" onChange={this.handleChanges} placeholder="Tagline" />
+          <UserInfo type="text" name="start_date" onChange={this.handleChanges} placeholder="Job Start Date" />
   
           <FormButton onClick={this.handleEdit}>Edit User</FormButton>
   

@@ -17,12 +17,13 @@ const StaffContainer = styled.div`
 `
 
 const IndividualAvatar = styled.img`
+  width: auto;
+  max-width: 550px;
   border-radius: 100%;
 `
 
 const StaffName = styled.p`
   font-size: 2rem;
-  font-weight: bold;
 `
 const Logo = styled.img`
   height: 300px;
@@ -42,6 +43,12 @@ const FormButton = styled.button`
     background-color: #5CA143
     color: white;
   }
+`
+
+const StyleNavBar = styled.div`
+  height: 20px;
+  width: 100%;
+  justify-content: flex-start;
 `
 
 
@@ -64,22 +71,26 @@ function staffProfile (props) {
 
   return (
     <div>
-    <NavLink className="nav-link" onClick={handleLogout} to="/">Logout</NavLink>
-    <div>
-     
-      <Logo src={require("../../tipease3.png")} alt="logo"/>
-      <StaffContainer>
-        
-        <IndividualAvatar src={staffUser.photo_url} alt="avatar"/>
-        <StaffName>Employee: {staffUser.first_name} {staffUser.last_name}</StaffName>
-        <p>Start Date: {staffUser.start_date}</p>
-        <p>Tagline: {staffUser.tagline}</p>
-        <p>WOWWWWW LOOK AT ALL THIS MONEY I HAVE COOL</p>
+      <StyleNavBar/>
+        <NavLink className="nav-link" onClick={handleLogout} to="/">Logout</NavLink>
+      <StyleNavBar/>
+      
+      <div>
+        <Logo src={require("../../tipease3.png")} alt="logo"/>
+        <StaffContainer>
+          
+          <IndividualAvatar src={staffUser.photo_url} alt="avatar"/>
+          <StaffName><strong>Employee:</strong> {staffUser.first_name} {staffUser.last_name}</StaffName>
+          <StaffName><strong>Start Date:</strong> {staffUser.email}</StaffName>
+          <StaffName><strong>Start Date:</strong> {staffUser.start_date}</StaffName>
+          <StaffName><strong>Tagline:</strong> {staffUser.tagline}</StaffName>
+          
 
-        <FormButton onClick={toEdit}>Edit Profile</FormButton>   
-    
-      </StaffContainer>
-    </div>
+          <FormButton onClick={toEdit}>Edit Profile</FormButton>   
+      
+        </StaffContainer>
+      </div>
+
     </div>
   )
 

@@ -90,7 +90,7 @@ class Login extends React.Component {
 
   handleRegister = (e) => {
     e.preventDefault();
-    this.props.history.push("/staff-form")
+    this.props.history.push("/register-form")
 
   }
 
