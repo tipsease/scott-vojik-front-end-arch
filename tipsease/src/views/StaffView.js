@@ -13,8 +13,15 @@ class StaffView extends React.Component {
       tipper_id: '',
       tippee_id: '',
       amount: '',
+    },
+    blankTip: {
+      tipper_id: '',
+      tippee_id: '',
+      amount: '',
     }
   }
+
+   
 
   componentDidMount() {
     if (this.props.staff.length === 0) {
@@ -37,6 +44,7 @@ class StaffView extends React.Component {
   addNewTip = (e, id) => {
     e.preventDefault();
     this.props.addTip(id, this.state.tipData);
+    this.setState({ tipData: this.state.blankTip })
   }
 
   render() {

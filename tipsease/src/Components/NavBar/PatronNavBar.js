@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import { connect } from "react-redux"
+import { withRouter } from "react-router";
 
 import { getUserType } from "../../store/actions/index"
 
@@ -20,6 +21,10 @@ class PatronNavBar extends React.Component {
   localStorage.clear();
 }
 
+// toProfile = e => {
+//   this.props.history.push(`/patron-profile/${localStorage.getItem('userId')}`)
+// }
+
 render () {
 
   const StyleNavBar = styled.div`
@@ -29,14 +34,14 @@ render () {
   justify-content: flex-start;
 `
 
+
   return (
-    
-   
-    <StyleNavBar>
-    <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
-    <NavLink className="nav-link" exact to="/patron-profile">Profile</NavLink>
-    <NavLink className="nav-link" exact to="/staff-list">Home</NavLink>
-    </StyleNavBar>
+  
+      <StyleNavBar>
+      <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
+      <NavLink className="nav-link"  to={`/patron-profile/${localStorage.getItem('userId')}`}>Profile</NavLink>
+      <NavLink className="nav-link" exact to="/staff-list">Staff List</NavLink>
+      </StyleNavBar>
     
   )
 }
@@ -47,7 +52,7 @@ const mapStateToProps = state => ({
   userType: state.userType
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   { getUserType }
-)(PatronNavBar)
+)(PatronNavBar))

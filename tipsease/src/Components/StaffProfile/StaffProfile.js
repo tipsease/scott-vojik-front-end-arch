@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components"
 
+import { NavLink } from "react-router-dom"
+
 import { withRouter } from "react-router";
 
 const StaffContainer = styled.div`
@@ -8,7 +10,7 @@ const StaffContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center
-  margin-bottom: 60px;
+  margin: 60px auto;
 `
 
 const IndividualAvatar = styled.img`
@@ -19,9 +21,19 @@ const StaffName = styled.p`
   font-size: 2rem;
   font-weight: bold;
 `
+const Logo = styled.img`
+  height: 300px;
+  width: auto;
+  margin: 24px auto;
+`
+
 
 
 function staffProfile (props) {
+
+  const handleLogout = (e) => {
+    localStorage.clear();
+  }
 
   const staffUser = props.staff.find(staff => `${staff.id}` === props.match.params.id);
 
@@ -30,14 +42,22 @@ function staffProfile (props) {
 }
 
   return (
-
-    <StaffContainer>
-      <IndividualAvatar src={staffUser.photo_url} alt="avatar"/>
-      <StaffName>STAFF MEMBER: {staffUser.first_name} {staffUser.last_name}</StaffName>
-      <p>WOWWWWW LOOK AT ALL THIS MONEY I HAVE COOL</p>
-
-      <p>Hello WORLD</p>      
-    </StaffContainer>
+    <div>
+    <NavLink className="nav-link" onClick={handleLogout} to="/">Logout</NavLink>
+    <div>
+     
+      <Logo src={require("../../tipease3.png")} alt="logo"/>
+      <StaffContainer>
+        
+        <IndividualAvatar src={staffUser.photo_url} alt="avatar"/>
+        <StaffName>Employee: {staffUser.first_name} {staffUser.last_name}</StaffName>
+        <p>Start Date: {staffUser.start_date}</p>
+        <p>Tagline: {staffUser.tagline}</p>
+        <p>WOWWWWW LOOK AT ALL THIS MONEY I HAVE COOL</p>
+    
+      </StaffContainer>
+    </div>
+    </div>
   )
 
 }

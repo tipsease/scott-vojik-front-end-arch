@@ -37,7 +37,7 @@ const TipInput = styled.input`
   border-radius: 20px;
   font-size: 1.6rem;
   width: 450px;
-  margin: 12px auto;
+  margin: 0px auto 12px;
   border: 1px solid lightgray;
   color: #5CA143;
   font-weight: bold;
@@ -77,10 +77,10 @@ function Staff (props) {
     <StaffContainer>
       <IndividualAvatar src={staffMember.photo_url} alt="avatar"/>
       <StaffName>Staff Member: {staffMember.first_name} {staffMember.last_name}</StaffName>
-      <TipAmount>Tip: ${staffMember.tip_amount}</TipAmount>
+      {/* <TipAmount>Tip: ${staffMember.tip_amount}</TipAmount> */}
 
       <StyledForm>
-        <TipInput type="number" min="0" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.tipData.amount}/>
+        <TipAmount>Tip Amount $</TipAmount><TipInput type="number" min="0" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.tipData.amount}/>
         <TipButton type="submit" onClick={(e) => props.addNewTip(e, staffMember.id)}>Tip Staff</TipButton>
       </StyledForm>
           
