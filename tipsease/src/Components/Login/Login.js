@@ -116,8 +116,8 @@ class Login extends React.Component {
 
         this.setState({ userType: localStorage.getItem('userType') })
         this.props.getUserType(this.state.userType);
-        if (this.state.userType === "tipper") {
-          return this.props.history.push('/staff-list');
+        if (this.state.userType === "tippee") {       //if employee
+          return this.props.history.push(`/staff-profile/${localStorage.getItem('userId')}`);
         } else {
           return this.props.history.push(`/patron-profile/${localStorage.getItem('userId')}`)
         }

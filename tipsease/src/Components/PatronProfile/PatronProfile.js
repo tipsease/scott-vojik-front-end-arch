@@ -60,7 +60,7 @@ const TipButton = styled.button`
   }
 `
 
-function Patron (props) {
+function PatronProfile (props) {
 
   const patronUser = props.patrons.find(patron => `${patron.id}` === props.match.params.id);
 
@@ -72,7 +72,7 @@ function Patron (props) {
 
     <StaffContainer>
       <IndividualAvatar src={patronUser.photo_url} alt="avatar"/>
-      <StaffName>Staff Member: {patronUser.first_name} {patronUser.last_name}</StaffName>
+      <StaffName>TIPPER/PATRON: {patronUser.first_name} {patronUser.last_name}</StaffName>
 
       <p>Hello WORLD</p>      
     </StaffContainer>
@@ -80,4 +80,4 @@ function Patron (props) {
 
 }
 
-export default withRouter(Patron);
+export default withRouter(PatronProfile);

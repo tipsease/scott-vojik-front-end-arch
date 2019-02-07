@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux"
 
-import Patron from "../Components/Patron/Patron";
+import PatronProfile from "../Components/PatronProfile/PatronProfile";
 import { getPatrons } from "../store/actions/index"
 
-class PatronHomeView extends React.Component {
+class PatronProfileView extends React.Component {
 
   state = {
     patrons: [],
@@ -22,7 +22,7 @@ class PatronHomeView extends React.Component {
 
     return (
       <div>
-        <Patron patrons={this.props.patrons}/>
+        <PatronProfile patrons={this.props.patrons}/>
       </div>
     )
   }
@@ -38,6 +38,6 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getPatrons }
-)(PatronHomeView)
+)(PatronProfileView)
 
 // export default PatronHomeView

@@ -10,7 +10,9 @@ import StaffView from './views/StaffView';
 import FormView from './views/FormView';
 import Login from "./Components/Login/Login"
 import { getUserType } from './store/actions/index'
-import PatronHomeView from "./views/PatronHomeView"
+import PatronProfileView from "./views/PatronProfileView"
+import StaffProfileView from "./views/StaffProfileView"
+
 
 import './App.css';
 
@@ -84,7 +86,9 @@ class App extends React.Component {
           <Route path="/staff-form" render={props => <FormView {...props} /> } />
           <Route exact path="/" component={Login} />
 
-          <Route path="/patron-profile/:id" render={props => <PatronHomeView {...props} />} />
+          <Route path="/patron-profile/:id" render={props => <PatronProfileView {...props} />} />
+          <Route path="/staff-profile/:id" render={props => <StaffProfileView {...props} />} />
+
 
         </AppStyled>
       );
