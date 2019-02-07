@@ -8,12 +8,7 @@ import Staff from "../Components/Staff/Staff"
 class StaffView extends React.Component {
 
   state ={
-    staff: {
-      first_name: '',
-      photo_url: '',
-      amount: '',
-      id: null,
-    },
+    staff: [],
     tipData: {
       tipper_id: '',
       tippee_id: '',
@@ -31,25 +26,20 @@ class StaffView extends React.Component {
   }
 
   changeHandler = ev => {
-    this.setState({
-      staff: {
-        ...this.state.staff,
-        [ev.target.name]: ev.target.value
-      },
-      tipData: {
-        [ev.target.name]: ev.target.value
-      }
-    });
+    ev.preventDefault();
+    this.setState({ tipData: {
+      ...this.state.tipData,
+      [ev.target.name]: ev.target.value
+    }})
   };
 
-  addNewTip = (e, id) => {
-    e.preventDefault();
+  addNewTip = id => {
     this.props.addTip(id, this.state.tipData);
   }
 
   render() {
     return (
-      <Staff addNewTip={this.addNewTip} tipData={this.state.tipData} tips={this.props.tips} changeHandler={this.changeHandler} stateStaff={this.state.staff} staff={this.props.staff} history={this.props.history} match={this.props.match} />
+      <Staff addNewTip={this.addNewTip} tipData={this.state.tipData} tips={this.props.tips} changeHandler={this.changeHandler} staff={this.props.staff} history={this.props.history} match={this.props.match} />
     )
   }
 }
