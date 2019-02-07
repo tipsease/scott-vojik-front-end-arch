@@ -4,61 +4,36 @@ import styled from "styled-components"
 import { withRouter } from "react-router";
 
 const StaffContainer = styled.div`
-  width: 100%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center
-  margin-bottom: 60px;
+  margin: 48px auto 60px;
+  padding: 64px 0px 48px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 2px 1px 12px 5px #86A38C;
 `
 
 const IndividualAvatar = styled.img`
+  padding: 48px;
   border-radius: 100%;
+  border: 1px solid #5CA143;
 `
 
 const StaffName = styled.p`
+  padding: 0 12px;
   font-size: 2rem;
-  font-weight: bold;
-`
+  margin: 24px auto 12px;
+  word-break: break-all;
 
-const TipAmount = styled.p`
-  font-size: 2rem;
-  color: #5CA143;
-  font-weight: bold;
-`
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-`
-
-const TipInput = styled.input`
-  padding: 10px 20px 10px;
-  text-align: center;
-  border-radius: 20px;
-  font-size: 1.6rem;
-  width: 450px;
-  margin: 12px auto;
-  border: 1px solid lightgray;
-  color: #5CA143;
-  font-weight: bold;
-  height: 100px;
-`
-
-const TipButton = styled.button`
-  padding: 30px 10px 30px;
-  border-radius: 20px;
-  font-size: 1.8rem;
-  width: 450px;
-  margin: 12px; auto;
-  border-color: lightgray;
-  font-weight: bold;
-
-  &:hover {
-    background-color: #5CA143
-    color: white;
+  &:last-of-type {
+    margin-bottom: 36px;
   }
 `
+
+
 
 function PatronProfile (props) {
 
@@ -72,9 +47,13 @@ function PatronProfile (props) {
 
     <StaffContainer>
       <IndividualAvatar src={patronUser.photo_url} alt="avatar"/>
-      <StaffName>TIPPER/PATRON: {patronUser.first_name} {patronUser.last_name}</StaffName>
+      <StaffName><strong>First Name:</strong> {patronUser.first_name} </StaffName>
+      <StaffName><strong>Last Name:</strong> {patronUser.last_name}</StaffName>
+      <StaffName><strong>Email:</strong> {patronUser.email}</StaffName>
+      <StaffName><strong>Avatar URL:</strong> {patronUser.photo_url}</StaffName>
 
-      <p>Hello WORLD</p>      
+
+      <button>Edit Profile</button>     
     </StaffContainer>
   )
 
