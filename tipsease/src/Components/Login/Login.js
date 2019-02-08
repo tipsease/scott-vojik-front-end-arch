@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 const LoginContainer = styled.div`
+  padding-bottom: 64px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -14,7 +15,7 @@ const LoginContainer = styled.div`
 `
 
 const Logo = styled.img`
-  height: 450px;
+  height: 350px;
   width: auto;
   margin: 24px auto;
 `
@@ -128,7 +129,7 @@ class Login extends React.Component {
         <StyledForm>
 
           <UserInfo type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}  />
-          <UserInfo type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange}  />
+          <UserInfo type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange}  />
 
           <ButtonContainer>
 
