@@ -123,10 +123,10 @@ class RegisterForm extends React.Component {
       last_name: this.state.last_name,
       email: this.state.email,
       password: this.state.password,
+      tipperBoolean: this.state.tipperBoolean === "true" ? true : false,
       tagline: this.state.tagline,
-      // photo_url: this.state.photo_url,
       start_date: this.state.start_date,
-      tipperBoolean: this.state.tipperBoolean === "true" ? true : false
+      
      
     })
     .then(res => {
