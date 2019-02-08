@@ -54,6 +54,7 @@ const LoginButtons = styled.button`
   width: 450px;
   margin: 12px; auto;
   border: 1px solid lightgray;
+  cursor: pointer;
   &:hover {
     background-color: #5CA143
     color: white;
@@ -67,6 +68,7 @@ const RadioContainer = styled.div`
 `
 
 const RadioButton = styled.input`
+cursor: pointer;
   padding: 16px;
   width: 16px;
   height: 16px;

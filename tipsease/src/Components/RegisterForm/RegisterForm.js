@@ -53,6 +53,7 @@ const FormButton = styled.button`
   width: 450px;
   margin: 12px auto;
   border-color: lightgray;
+  cursor: pointer;
   &:hover {
     background-color: #5CA143
     color: white;
@@ -70,6 +71,7 @@ const RadioButton = styled.input`
   width: 16px;
   height: 16px;
   margin: 0 20px;
+  cursor: pointer;
 `
 
 const RadioFont = styled.label`
