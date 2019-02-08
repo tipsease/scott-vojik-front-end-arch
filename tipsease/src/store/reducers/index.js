@@ -81,7 +81,7 @@ const staff = (state = initialState, action) => {
     //   return {
     //     ...state,
     //     error: action.payload
-    //   }
+      // }
     case TIP_STAFF_START:
       return {
         ...state,

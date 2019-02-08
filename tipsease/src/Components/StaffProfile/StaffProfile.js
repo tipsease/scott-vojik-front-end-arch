@@ -9,11 +9,16 @@ import { getStaff } from "../../store/actions/"
 
 
 const StaffContainer = styled.div`
-  width: 100%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center
-  margin: 60px auto;
+  margin: 48px auto 60px;
+  padding: 64px 0px 48px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 2px 1px 12px 5px #86A38C;
 `
 
 const IndividualAvatar = styled.img`
@@ -28,7 +33,7 @@ const StaffName = styled.p`
 const Logo = styled.img`
   height: 300px;
   width: auto;
-  margin: 24px auto;
+  margin: 0 auto;
 `
 
 const FormButton = styled.button`

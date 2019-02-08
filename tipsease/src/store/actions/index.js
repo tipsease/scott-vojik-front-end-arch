@@ -12,9 +12,9 @@ export const ADD_STAFF_START = "ADD_STAFF_START"
 export const ADD_STAFF_SUCCESS = "ADD_STAFF_SUCCESS"
 export const ADD_STAFF_FAILURE = "ADD_STAFF_FAILURE"
 
-// export const ADD_PATRON_START = "ADD_PATRON_START"
-// export const ADD_PATRON_SUCCESS = "ADD_PATRON_SUCCESS"
-// export const ADD_PATRON_FAILURE = "ADD_PATRON_FAILURE"
+export const ADD_PATRON_START = "ADD_PATRON_START"
+export const ADD_PATRON_SUCCESS = "ADD_PATRON_SUCCESS"
+export const ADD_PATRON_FAILURE = "ADD_PATRON_FAILURE"
 
 export const TIP_STAFF_START = "TIP_STAFF_START"
 export const TIP_STAFF_SUCCESS = "TIP_STAFF_SUCCESS"
@@ -64,7 +64,7 @@ export const addStaff = staff => dispatch => {
 // export const addPatron = patron => dispatch => {
 //   dispatch({ type: ADD_PATRON_START });
 //   axios
-//     .post("https://tipsease-david-freitag-backend.herokuapp.com/api/tippees/", patron)
+//     .post("https://tipsease-backend.herokuapp.com/api/tippees/", patron)
 //     .then(res => dispatch ({ type: ADD_PATRON_SUCCESS, payload: res.data }))
 //     .catch(err => dispatch({ type: ADD_PATRON_FAILURE, payload: err }));
 // }

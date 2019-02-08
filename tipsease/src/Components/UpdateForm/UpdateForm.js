@@ -4,15 +4,29 @@ import styled from "styled-components"
 import axios from "axios"
 import { NavLink } from "react-router-dom"
 
-const FormContainer = styled.div`
-  width: 100%;
+const FlexDiv = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center
+  justify-content: center;
+  align-items: center;
+`
+
+const FormContainer = styled.div`
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 64px;
+  border: 1px solid lightgray;
+  box-shadow: 2px 1px 12px 5px #86A38C;
+  border-radius: 10px;
 `
 
 const StyledForm = styled.form`
+  margin: 48px auto;
+  padding: 12px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,9 +64,9 @@ const StyleNavBar = styled.div`
 `
 
 const LinkHandle = styled.div`
-  margin-left: 5%;
-  display: flex;
-  justify-content: flex-start;
+  position: absolute;
+  top: 28px;
+  left: 20px;
 `
 
 const Logo = styled.img`
@@ -110,7 +124,7 @@ class UpdateForm extends React.Component {
     const staffId = localStorage.getItem("userId")
     return (
 
-      <div>
+      <FlexDiv>
         <StyleNavBar/>
           <LinkHandle>
           <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
@@ -132,12 +146,14 @@ class UpdateForm extends React.Component {
             <UserInfo type="text" name="tagline" onChange={this.handleChanges} placeholder="Tagline" />
             <UserInfo type="text" name="start_date" onChange={this.handleChanges} placeholder="Job Start Date" />
     
+            <div>
             <FormButton onClick={this.handleEdit}>Edit User</FormButton>
-    
+            </div>
+
           </StyledForm>
     
         </FormContainer>
-      </div>
+      </FlexDiv>
     )
   }
   

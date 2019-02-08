@@ -10,7 +10,6 @@ const FlexDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 `
 
 const FormContainer = styled.div`
@@ -105,7 +104,7 @@ class RegisterForm extends React.Component {
     password: "",
     tagline: "",
     photo_url: "",
-    tipperBoolean: false,
+    tipperBoolean: null,
     start_date: '',
     errorMsg: null
   }
@@ -125,7 +124,7 @@ class RegisterForm extends React.Component {
       email: this.state.email,
       password: this.state.password,
       tagline: this.state.tagline,
-      photo_url: this.state.photo_url,
+      // photo_url: this.state.photo_url,
       start_date: this.state.start_date,
       tipperBoolean: this.state.tipperBoolean === "true" ? true : false
      
@@ -161,7 +160,7 @@ class RegisterForm extends React.Component {
           <UserInfo type="text" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
           <UserInfo type="text" name="email" onChange={this.handleChanges} placeholder="Email" />
           <UserInfo type="password" name="password" onChange={this.handleChanges} placeholder="Password" />
-          <UserInfo type="text" name="photo_url" onChange={this.handleChanges} placeholder="Profile Picture (URL)" />
+          {/* <UserInfo type="text" name="photo_url" onChange={this.handleChanges} placeholder="Profile Picture (URL)" /> */}
 
           {this.state.tipperBoolean == "true" ? null : (
             <StyledFormDiv>
