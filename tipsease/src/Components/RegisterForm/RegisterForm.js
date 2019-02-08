@@ -42,7 +42,7 @@ const UserInfo = styled.input`
   border-radius: 20px;
   font-size: 1.8rem;
   width: 450px;
-  margin: 12px; auto;
+  margin: 12px;
   border: 1px solid lightgray;
 `
 
@@ -152,9 +152,9 @@ class RegisterForm extends React.Component {
   
         <StyledForm>
   
-          <UserInfo type="text" name="first_name" onChange={this.handleChanges} placeholder="First Name" />
-          <UserInfo type="text" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
-          <UserInfo type="text" name="email" onChange={this.handleChanges} placeholder="Email" />
+          <UserInfo type="text" autocomplete="off" name="first_name" onChange={this.handleChanges} placeholder="First Name" />
+          <UserInfo type="text" autocomplete="off" name="last_name" onChange={this.handleChanges} placeholder="Last Name" />
+          <UserInfo type="text" autoComplete="off" name="email" onChange={this.handleChanges} placeholder="Email" />
           <UserInfo type="password" name="password" onChange={this.handleChanges} placeholder="Password" />
           {/* <UserInfo type="text" name="photo_url" onChange={this.handleChanges} placeholder="Profile Picture (URL)" /> */}
 

@@ -128,7 +128,7 @@ class Login extends React.Component {
         <Logo src={require("../../tipease3.png")} alt="logo"/>
         <StyledForm>
 
-          <UserInfo type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}  />
+          <UserInfo type="text" autoComplete="off" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}  />
           <UserInfo type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange}  />
 
           <ButtonContainer>

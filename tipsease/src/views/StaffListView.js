@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { NavLink } from "react-router-dom"
+// import { NavLink } from "react-router-dom"
 
 import { getStaff } from "../store/actions"
 
@@ -50,7 +50,7 @@ class StaffListView extends React.Component {
       </div>
     )
   }
-  
+
 }
 
 const mapStateToProps = state => ({
