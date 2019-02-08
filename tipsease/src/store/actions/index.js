@@ -61,14 +61,6 @@ export const addStaff = staff => dispatch => {
     .catch(err => dispatch({ type: ADD_STAFF_FAILURE, payload: err }));
 }
 
-// export const addPatron = patron => dispatch => {
-//   dispatch({ type: ADD_PATRON_START });
-//   axios
-//     .post("https://tipsease-backend.herokuapp.com/api/tippees/", patron)
-//     .then(res => dispatch ({ type: ADD_PATRON_SUCCESS, payload: res.data }))
-//     .catch(err => dispatch({ type: ADD_PATRON_FAILURE, payload: err }));
-// }
-
 export const addTip = (id, tip) => dispatch => {
   console.log("TIPPPP", tip);
   dispatch({ type: TIP_STAFF_START });

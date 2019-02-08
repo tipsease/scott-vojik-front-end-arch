@@ -6,45 +6,35 @@ import { withRouter } from "react-router";
 
 import { getUserType } from "../../store/actions/index"
 
-
-
-
 class PatronNavBar extends React.Component {
 
   state = {
     userType: ''
   }
 
+  handleLogout = (e) => {
+    localStorage.clear();
+  }
 
+  render () {
 
- handleLogout = (e) => {
-  localStorage.clear();
-}
+    const StyleNavBar = styled.div`
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+  `
 
-// toProfile = e => {
-//   this.props.history.push(`/patron-profile/${localStorage.getItem('userId')}`)
-// }
-
-render () {
-
-  const StyleNavBar = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
-`
-
-
-  return (
-  
-      <StyleNavBar>
-      <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
-      <NavLink className="nav-link"  to={`/patron-profile/${localStorage.getItem('userId')}`}>Profile</NavLink>
-      <NavLink className="nav-link" exact to="/staff-list">Staff List</NavLink>
-      </StyleNavBar>
+    return (
     
-  )
-}
+        <StyleNavBar>
+        <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
+        <NavLink className="nav-link"  to={`/patron-profile/${localStorage.getItem('userId')}`}>Profile</NavLink>
+        <NavLink className="nav-link" exact to="/staff-list">Staff List</NavLink>
+        </StyleNavBar>
+      
+    )
+  }
   
 }
 

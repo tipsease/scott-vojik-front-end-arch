@@ -15,7 +15,6 @@ class StaffProfileView extends React.Component {
       this.props.getStaff();
     }
     this.props.getStaff();
-    
   }
 
   render() {
@@ -26,7 +25,7 @@ class StaffProfileView extends React.Component {
       </div>
     )
   }
-
+  
 }
 
 const mapStateToProps = state => ({

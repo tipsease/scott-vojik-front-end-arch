@@ -1,13 +1,8 @@
 import { 
-  FETCH_STAFF_START,
   FETCH_STAFF_SUCCESS,
   FETCH_STAFF_FAILURE,
-  FETCH_PATRONS_START,
   FETCH_PATRONS_SUCCESS,
   FETCH_PATRONS_FAILURE,
-  // ADD_PATRON_START,
-  // ADD_PATRON_SUCCESS,
-  // ADD_PATRON_FAILURE,
   ADD_STAFF_START,
   ADD_STAFF_SUCCESS,
   ADD_STAFF_FAILURE,
@@ -71,17 +66,6 @@ const staff = (state = initialState, action) => {
         ...state,
         error: action.payload
       }
-    // case ADD_PATRON_SUCCESS:
-    //   return {
-    //     ...state,
-    //     patrons: action.payload,
-    //     error: '',
-    //   }
-    // case ADD_PATRON_FAILURE:
-    //   return {
-    //     ...state,
-    //     error: action.payload
-      // }
     case TIP_STAFF_START:
       return {
         ...state,

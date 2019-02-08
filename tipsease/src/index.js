@@ -8,10 +8,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger"
 import { BrowserRouter as Router } from "react-router-dom"
 
-
 import rootReducer from "./store/reducers"
-
-
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

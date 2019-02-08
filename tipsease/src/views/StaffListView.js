@@ -41,6 +41,7 @@ class StaffListView extends React.Component {
   }
 
   render() {
+
     return (
     
       <div>
@@ -49,6 +50,7 @@ class StaffListView extends React.Component {
       </div>
     )
   }
+  
 }
 
 const mapStateToProps = state => ({

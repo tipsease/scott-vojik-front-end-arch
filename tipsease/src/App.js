@@ -14,7 +14,6 @@ import PatronProfileView from "./views/PatronProfileView"
 import StaffProfileView from "./views/StaffProfileView"
 import UpdateForm from "./Components/UpdateForm/UpdateForm"
 
-
 import './App.css';
 
 const AppStyled = styled.div`
@@ -22,13 +21,6 @@ const AppStyled = styled.div`
   background-color: #fffffd;
   text-align: center;
 `
-
-// const StyleNavBar = styled.div`
-//   width: 100%;
-//   margin: 0 auto;
-//   display: flex;
-//   justify-content: flex-start;
-// `
 
 const Logo = styled.img`
   height: 300px;
@@ -46,33 +38,15 @@ class App extends React.Component {
     this.props.getUserType();
   }
  
-
   handleLogout = (e) => {
     localStorage.clear();
   }
-  
-
   
   render() {
     
       return (
         <AppStyled>          
-          {/* <StyleNavBar> */}
-            
-            {/* <NavLink className="nav-link" exact to="/staff-form">Register</NavLink>
-            */}
-          
-            {/* <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
-            <NavLink className="nav-link" exact to="/patron-profile">Profile</NavLink>
-            <NavLink className="nav-link" exact to="/staff-list">Home</NavLink>
-            
 
-          </StyleNavBar> */}
-          
-          
-  {/* 
-          <Route path="/" component={} /> */}
-          
           <Route exact path="/staff-list" render={props => (
             <div>
               <PatronNavBar />
@@ -82,7 +56,6 @@ class App extends React.Component {
             )} 
           />
 
-          {/* <Route path="/staff-list" component={NavBar} /> */}
           <Route path="/staff-list/:id" render={props => (
             <div>
                <PatronNavBar {...props} /> 
@@ -90,7 +63,6 @@ class App extends React.Component {
                <StaffView {...props} />   
             </div>
           )}/>
-
 
           <Route path="/register-form" render={props => (
             <div>
@@ -118,7 +90,6 @@ class App extends React.Component {
           }/>
 
           <Route exact path="/staff-profile/:id" render={props => <StaffProfileView {...props} />} />
-
 
         </AppStyled>
       );

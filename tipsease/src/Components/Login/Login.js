@@ -11,7 +11,6 @@ const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center
-  
 `
 
 const Logo = styled.img`
@@ -101,7 +100,7 @@ class Login extends React.Component {
   handleSubmit = event => {
 
     event.preventDefault();
-    const endpoint = 'https://tipsease-backend.herokuapp.com/api/login'; // hey, this is kai endpoint
+    const endpoint = 'https://tipsease-backend.herokuapp.com/api/login'; 
 
     axios
       .post(endpoint, this.state)
@@ -169,4 +168,3 @@ export default withRouter(connect(
   { getUserType, getStaff }
 )(Login))
 
-// export default withRouter(Login);

@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-
 import { getStaff, addTip, getTips } from "../store/actions"
 
 import Staff from "../Components/Staff/Staff"
@@ -20,8 +19,6 @@ class StaffView extends React.Component {
       amount: '',
     }
   }
-
-   
 
   componentDidMount() {
     if (this.props.staff.length === 0) {

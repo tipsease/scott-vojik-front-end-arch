@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components"
 
-
 const StaffContainer = styled.div`
   width: 45%;
   display: flex;
@@ -67,23 +66,17 @@ const TipButton = styled.button`
 
 function Staff (props) {
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   props.addNewTip(staffMember);
-  // }
-
   const staffMember = props.staff.find(staff => `${staff.id}` === props.match.params.id);
 
   if (!staffMember) {
     return <h2>Loading data...</h2>
-}
+  }
 
   return (
 
     <StaffContainer>
       <IndividualAvatar src={staffMember.photo_url} alt="avatar"/>
       <StaffName>Staff Member: {staffMember.first_name} {staffMember.last_name}</StaffName>
-      {/* <TipAmount>Tip: ${staffMember.tip_amount}</TipAmount> */}
 
       <StyledForm>
         <TipAmount>Tip Amount $</TipAmount><TipInput type="number" min="0" name="amount" placeholder="Enter Tip Amount" onChange={props.changeHandler} value={props.tipData.amount}/>

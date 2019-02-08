@@ -75,7 +75,6 @@ const Logo = styled.img`
   margin: 24px auto;
 `
 
-
 class UpdateForm extends React.Component {
 
   state = {
@@ -95,15 +94,10 @@ class UpdateForm extends React.Component {
     localStorage.clear();
   }
 
-  handleHome = e => {
-    
-  }
-
   handleEdit= event => {
   event.preventDefault();
   axios
     .put(`https://tipsease-backend.herokuapp.com/api/tippees/${localStorage.getItem('userId')}`, {
-      // this was a mistake, but you can do it this way
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       email: this.state.email,
@@ -118,13 +112,14 @@ class UpdateForm extends React.Component {
     .catch(err => this.setState({ errorMsg: 'This email is already in use' }));
   };
 
-
-
   render() {
+
     const staffId = localStorage.getItem("userId")
+
     return (
 
       <FlexDiv>
+
         <StyleNavBar/>
           <LinkHandle>
           <NavLink className="nav-link" onClick={this.handleLogout} to="/">Logout</NavLink>
@@ -136,7 +131,6 @@ class UpdateForm extends React.Component {
         <Logo src={require("../../tipease3.png")} alt="logo"/>
 
         <FormContainer>
-    
           <StyledForm>
     
             <UserInfo type="text" name="first_name" onChange={this.handleChanges} placeholder="First Name" />
@@ -151,8 +145,8 @@ class UpdateForm extends React.Component {
             </div>
 
           </StyledForm>
-    
         </FormContainer>
+
       </FlexDiv>
     )
   }

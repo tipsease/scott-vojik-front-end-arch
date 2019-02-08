@@ -27,8 +27,6 @@ class PatronProfileView extends React.Component {
     )
   }
 
-
-
 }
 
 const mapStateToProps = state => ({
@@ -40,4 +38,3 @@ export default connect(
   { getPatrons }
 )(PatronProfileView)
 
-// export default PatronHomeView

@@ -4,7 +4,6 @@ import styled from "styled-components"
 import axios from "axios"
 import { NavLink } from "react-router-dom"
 
-
 const FlexDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -118,7 +117,6 @@ class RegisterForm extends React.Component {
   console.log("STATEEEE", this.state)
   axios
     .post('https://tipsease-backend.herokuapp.com/api/register', {
-      // this was a mistake, but you can do it this way
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       email: this.state.email,
@@ -126,8 +124,6 @@ class RegisterForm extends React.Component {
       tipperBoolean: this.state.tipperBoolean === "true" ? true : false,
       tagline: this.state.tagline,
       start_date: this.state.start_date,
-      
-     
     })
     .then(res => {
       localStorage.setItem('jwt', res.data.token);

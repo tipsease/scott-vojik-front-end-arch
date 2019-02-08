@@ -4,9 +4,7 @@ import { NavLink } from "react-router-dom"
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
-
 import { getStaff } from "../../store/actions/"
-
 
 const StaffContainer = styled.div`
   width: 45%;
@@ -63,8 +61,6 @@ const LinkHandle = styled.div`
   justify-content: flex-start;
 `
 
-
-
 function staffProfile (props) {
 
   const handleLogout = (e) => {
@@ -79,7 +75,7 @@ function staffProfile (props) {
 
   if (!staffUser) {
     return <h2>Loading data...</h2>
-}
+  }
 
   return (
     <div>
@@ -99,7 +95,6 @@ function staffProfile (props) {
           <StaffName><strong>Start Date:</strong> {staffUser.start_date}</StaffName>
           <StaffName><strong>Tagline:</strong> {staffUser.tagline}</StaffName>
           
-
           <FormButton onClick={toEdit}>Edit Profile</FormButton>   
       
         </StaffContainer>
@@ -117,4 +112,4 @@ export default withRouter(connect(
   { getStaff }
 )(staffProfile))
 
-// export default withRouter(staffProfile);
+
