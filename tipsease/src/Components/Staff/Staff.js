@@ -18,6 +18,7 @@ const IndividualAvatar = styled.img`
   padding: 48px;
   border-radius: 100%;
   border: 1px solid #5CA143;
+  width: 90%;
 `
 
 const StaffName = styled.p`

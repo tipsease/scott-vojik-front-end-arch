@@ -38,7 +38,8 @@ const FormButton = styled.button`
   padding: 30px 10px 30px;
   border-radius: 20px;
   font-size: 1.8rem;
-  width: 450px;
+  max-width: 450px;
+  width: 90%;
   margin: 12px auto;
   border-color: lightgray;
 

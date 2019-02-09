@@ -35,6 +35,9 @@ function StaffList(props) {
   `
   const ListPic = styled.img`
     border-radius: 100%;  
+    width: 50%;
+    height: 210px;
+    object-fit: contain;
   `
   const NameContainer = styled.div`
     width: 80%;
